@@ -1,0 +1,56 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.order {
+	.state {
+		.m-box__flex {
+			color: @color-gray5;
+			&:before {
+				content: '';
+				display: block;
+				.px2rem(width, 40);
+				.px2rem(height, 88);
+				.px2rem(margin-top, -24);
+				.px2rem(margin-bottom, -24);
+				.px2rem(margin-right, @spacing-vertical-small);
+				background: url('/components/icons/images/w.png');
+				background-size: cover;
+			}
+			.item2:last-child {
+				text-align: right;
+			}
+			.time {
+				.px2px(font-size, @font-size-h5);
+			}
+			
+			&:last-child {
+				color: @color-primary;
+				.time {
+					color: @color-primary;
+				}
+				&:before {
+					background: url('/components/icons/images/last.png');
+					background-size: cover;
+				}
+			}
+		}
+
+	}
+	.box {
+		display: flex;
+		align-items: center;
+		.flex:nth-child(1) {
+			flex-grow:1;
+			.px2rem(margin-right, @spacing-vertical-small);
+		}
+		.flex:nth-child(2) {
+			flex-grow:3;
+		}
+	}
+	.remind {
+		.px2rem(margin-top, @spacing-vertical-small);
+		.px2px(font-size, 22);
+		text-align: center;
+	}
+}
+	

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-banner-download></ui-banner-download>
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <ui-select-menu :items='menus' :active.sync='open' @change='onSelectMenusChange'></ui-select-menu>
+        <ui-list 
+            :is-disable='open!=-1'
+            :is-last-page='isLastPage' 
+            :is-loading='isLoading' 
+            :is-empty='isEmpty' 
+            @load-more='onLoadMore'
+        >
+            <div class="group-list" v-if='items.length'>
+                <a class="item" v-for='item in items' :href='"index.html?id="+item.id'>
+                    <img :src="item.coverImg" @error='getDefaultImg(item)'>
+                    <div class="text">
+                        <div class="name">{{item.groupName}}</div>
+                        <div class="detail">{{item.tag}}</div>
+                        <div class="tips">
+                            <span>综合评分 
+                            <strong v-if="item.groupScore == 0">暂无</strong>
+                            <strong v-else> {{item.groupScore}}</strong>
+                            </span>
+                            <span v-if="item.commentNum">评论<strong>{{item.commentNum}}</strong></span>
+                            <span class="f-fr">
+                                {{item.regionName}}&nbsp;
+                                <span v-if="item.dist">{{item.dist}}km</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </ui-list>
+        <ui-scroll-top></ui-scroll-top>
+
+        <!--loading 动画-->
+        <ui-loading :is-loading="isLoading"></ui-loading>
+        
+    </div>
+</body>
+
+</html>

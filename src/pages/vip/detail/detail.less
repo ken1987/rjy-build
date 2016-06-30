@@ -1,0 +1,79 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+
+.p-detail {
+    .card {
+        position: relative;
+        .px2rem(width, 640);
+        .px2rem(height, 360);
+        .px2rem(padding, 80, 50, 0);
+        background: url(bg.png?__sprite) no-repeat;
+        background-size: cover;
+        
+        img {
+            display: inline-block;
+            .px2rem(width, 104);
+            .px2rem(height, 104);
+            .px2rem(margin-right, 16);
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .infor {
+            display: inline-block;
+            .px2rem(width, 330);
+            vertical-align: middle;
+        }
+        .name {
+            .text-overflow();
+        }
+        .discount {
+            .px2px(font-size, 42);
+            color: @color-black;
+        }
+        .time {
+            .px2px(font-size, 24);
+            color: @color-gray5;
+        }
+        .flag {
+            float: right;
+            width: 40px;
+            .px2px(font-size, 24);
+            color: #25a1d7;
+            text-align: center;
+        }
+    }
+    .vip {
+        position: relative;
+        .px2rem(padding, 12, 0);
+        .px2rem(margin-bottom, 60);
+        text-align: center;
+        color: @color-black;
+        background-color: @color-white;
+        .px2rem(border-radius, 16);
+        box-shadow: 0px 0px 0 1px #ccc;
+        .icon-crown {
+            font-size: 20px;
+            color: #ddad17;
+        }
+        .icon-triangle_d {
+            margin-bottom: -40px;
+            font-size: 20px;
+            color: @color-white;
+            text-shadow: 0px 1px 1px #ccc;
+        }
+    }
+    .error{
+        color: red;
+    }
+    
+    .t-textarea {
+        width: 100%;
+        min-height: 100px;
+        .px2rem(padding, 10);
+        background-color: @color-gray2;
+        border: 1px solid @color-gray4;
+        border-radius: 4px;
+        resize: none;
+    }
+}

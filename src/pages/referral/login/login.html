@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+<body>
+    <div id="wrap">
+        <!-- 头部 -->
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <!-- 登录 -->
+        <validator name="validation">
+            <div class='m-form'>
+                <div class="m-form__item">
+                    <i class="icon-phone"></i>
+                    <input 
+                        class="text-input" 
+                        type="text" 
+                        placeholder="请输入您的手机号码" 
+                        v-model="mobile"
+                        v-validate:mobile="{required:true,mobile:true}">
+                </div>
+                
+                <div class="m-form__item">
+                    <i class="icon-code"></i>
+                    <input 
+                        class="text-input" 
+                        type="text" 
+                        placeholder="请输入您的验证码" 
+                        maxlength="4" 
+                        v-model="code"
+                        v-validate:code="{required:true,minlength:4,maxlength:4}">
+                    <ui-button-code
+                        size='small' 
+                        :time.sync='time'
+                        @click="getCodeBySMS"></ui-button-code>
+                </div>
+            </div>
+        </validator>
+        <div class="g-con">
+            <ui-button type='primary' size='big' block='true' @click="login">
+                {{isLogining?'正在查询...':'查询'}}
+            </ui-button>
+        </div>
+        <!-- 切换方式 -->
+        <div class="g-con f-tar">
+            <a class="f-c-primary" @click='getCodeByTel'>语音验证码</a>
+        </div>
+        <!-- 注册 -->
+        <div class="register-con">
+            联系客服<a href="tel:400-6822-188" class="f-c-primary">400-6822-188 </a>
+        </div>
+    </div>
+</body>
+
+</html>

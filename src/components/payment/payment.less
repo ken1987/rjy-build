@@ -1,0 +1,51 @@
+@import "../ui/variable";
+@import "../ui/mixin";
+
+.m-payment__item {
+    display: flex;
+	align-items: center;
+    .px2rem(padding-top, 24);
+    .px2rem(padding-bottom, 24);
+    .px2rem(padding-right, 30);
+    .px2rem(margin-left, 30);
+    border-bottom: 1px solid @color-gray4;
+    &:last-child {
+        border-bottom: 0;
+    } 
+
+    .item {
+        flex-grow:1;
+    }
+    .icon-zfb,
+    .icon-wx {
+        display: inline-block;
+        .px2rem(margin-right, @spacing-vertical-small);
+        .px2px(font-size, 60);
+        vertical-align: middle;
+    }
+    .icon-zfb {
+        color: #00aaee;
+    }
+    .icon-wx {
+        color: #3cb034;
+    }
+    .choice {
+        display: inline-block;
+        .px2px(width, 44);
+        .px2px(height, 44);
+        color: @color-white;
+        text-align: center;
+        border: 1px solid lighten(@color-gray5, 20%);
+        border-radius: 50%;
+        .icon-right {
+            color: @color-white;
+        }
+    }
+    
+    &.z-on {
+        .choice {
+            border-color: @color-primary;
+            background-color: @color-primary;
+        }
+    }
+}

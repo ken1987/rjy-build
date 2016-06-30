@@ -1,0 +1,37 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+@half:@spacing-vertical-small/2;
+
+.m-banner-download{
+    display: flex;
+    align-items: center;
+    .px2rem(padding, @half,@spacing-vertical-small);
+    .px2rem(height, 88);
+    background-color: @color-background;
+    
+    .icon-wrong {
+        .px2rem(width, 30px);
+        .px2rem(height, 30px);
+        .px2rem(line-height, 30px);
+        text-align: center;
+        .px2px(font-size, 20);
+        color: @color-white;
+        background-color: rgba(0,0,0,.6);
+        border-radius: 50%;
+        .px2rem(margin-right, 10);
+    }
+    
+    .m-banner-download__text{
+        flex-grow: 1;
+        color: @color-black;
+        .px2px(font-size, 24);
+        .px2rem(margin-left, 10);
+        .px2rem(margin-right, 10);
+        white-space: nowrap;
+    }
+    
+    .btn {
+        .px2rem(width, 120);
+    }
+}

@@ -1,0 +1,34 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.infor {
+	// .px2rem(margin-bottom, 30);
+	// line-height: @line-height-small;
+	.title {
+		.px2px(font-size, 32);
+		color: @color-black;
+		.px2rem(margin-bottom, 10);
+	}
+	.score {
+		.px2px(font-size, 24);
+		strong {
+			font-weight: normal;
+			color: @color-success;
+		}
+	}
+	.aim {
+		.px2px(font-size, 26);
+		.px2rem(margin-bottom, 10);
+	}
+}
+	
+.about {
+	.px2rem(padding, 30);
+	line-height: @line-height-small;
+	background-color: @color-white;
+	p {
+		.px2rem(margin-top, 10);
+		.px2rem(margin-bottom, 10);
+		text-indent: 2em;
+	}
+}

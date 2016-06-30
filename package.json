@@ -1,0 +1,47 @@
+{
+    "name": "rjy-build",
+    "version": "0.0.1",
+    "description": "前后端同构实践",
+    "main": "build/server.js",
+    "scripts": {
+        "server-dev": "node build/server-dev.js",
+        "server": "node build/server.js",
+        "build-dev": "fis3 release -r src -f build/fis-conf-dev.js --verbose -d dist",
+        "build": "fis3 release-r src -f build/fis-conf-prod.js --verbose -d dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:ken1987/rjy-cli.git"
+    },
+    "keywords": [
+        "rjy",
+        "cli"
+    ],
+    "author": "ken1987 <ken198701@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "vue": "^1.0.26"
+    },
+    "devDependencies": {
+        "fis3": "^3.4.16",
+        "fis-postprocessor-rjy-postcss": "^0.1.1",
+        "fis3-postpackager-loader": "^2.0.2",
+        "fis-optimizer-html-minifier": "^0.0.9",
+        "fis-parser-less": "^0.1.3",
+        "autoprefixer": "^6.3.6",
+
+        "ejs": "^2.4.2",
+        "co-fs": "^1.0.0",
+        "request": "^2.72.0",
+        "eslint": "^2.13.1",
+        "vue-server": "^0.4.13",
+        "koa": "^1.2.0",
+        "koa-router": "^5.4.0",
+        "koa-compress": "^1.0.9",
+        "koa-ejs": "^3.0.0",
+        "koa-error": "^2.1.0",
+        "koa-logger": "^1.3.0",
+        "koa-static": "2.0.0",
+        "koa-proxy": "^0.6.0"
+    }
+}

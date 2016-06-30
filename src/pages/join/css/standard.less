@@ -1,0 +1,138 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+body {
+    background: @color-white;
+}
+.p-standard {
+    padding: 10px 10px 250px;
+    &:before {
+        content: '';
+        display: block;
+        margin: 0 auto 10px;
+        width: 22px;
+        height: 26px;
+        background: url("../images/j1.png") no-repeat;
+        background-size: cover;
+    }
+    .pact-title {
+        height: 20px;
+        border-bottom: 1px solid #D3D3D3;
+        margin-bottom: 20px;
+        text-align: center;
+        .title {
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            .px2px(font-size, 32);
+            color: @color-primary;
+            background-color: #fff;
+        }
+        .square-con {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 0;
+        }
+        .i10,
+        .i8,
+        .i6 {
+            display: inline-block;
+            vertical-align: middle;
+            background-color: #d3d3d3;
+        }
+        .i10 {
+            width: 10px;
+            height: 10px;
+            margin: 0 3px;
+        }
+        .i8 {
+            width: 8px;
+            height: 8px;
+            margin: 0 3px;
+        }
+        .i6 {
+            width: 6px;
+            height: 6px;
+            margin: 0 2px;
+        }
+    }
+    .pact-text {
+        line-height: 1.5;
+        padding-bottom: 10px;
+        p {
+            text-indent: 2em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 24px;
+            border-bottom: 1px dotted #c8c8c8;
+            margin-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+        h4 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        b,
+        strong {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        td {
+            padding-left: 5px;
+            padding-right: 5px;
+            line-height: 32px;
+            text-align: center;
+            border: 1px solid #c8c8c8;
+        }
+        thead td {
+            background-color: #e7ecf1;
+        }
+    }
+    .pact-side {
+        position: fixed;
+        left: 10px;
+        bottom: 80px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #f4f4f4;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        a {
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 60px;
+            text-align: center;
+            color: #333;
+            line-height: 1.5;
+            border-bottom: 1px solid #ccc;
+            &.on {
+                color: #6eb92b;
+            }
+        }
+        a:last-child {
+            border-bottom: 0;
+        }
+    }
+    // 固定在底部的按钮
+    .footerbar {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        border-top: 1px solid #e7e7e7;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}

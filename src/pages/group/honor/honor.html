@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <div class="honor-detail" v-if='info && !isLoading'>
+            {{{info.content}}}
+        </div>
+    </div>
+</body>
+
+</html>

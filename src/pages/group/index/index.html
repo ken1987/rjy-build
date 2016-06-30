@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap">
+    <p v-if='isInit'>正在初始化页面...</p>
+    <template v-else>
+        <p v-if='!info'>
+            <ui-loading></ui-loading>
+        </p>
+        <div v-else class="group" :class='template'>
+            <ui-header title='机构主页' type='2'>
+                <ui-header-back slot='left' type='2'></ui-header-back>
+                <!-- <ui-header-collect slot='right' type='2' :id='id' :collected='info.collected'></ui-header-collect> -->
+            </ui-header>
+            <div class="group__hd">
+                <div class="logo">
+                    <img :src="info.logo" @error='getDefaultImg'>
+                </div>
+                <div class="name">
+                    {{info.groupName}}
+                </div>
+                <div class="score">
+                    综合评分：<span v-if="info.groupScore == 0 ">暂无</span>
+                    <span v-else>{{info.groupScore}}</span>
+                </div>
+                <div class="purpose">
+                    <i class="icon-bookmark"></i> 
+                    {{info.tag}}
+                </div>
+            </div>
+           
+            <div class="group__bd">
+                <div class="nav f-clearfix">
+                    <a class="about" :href='aboutUrl'>
+                        <span>简介</span>
+                    </a>
+                    <a class="course" :href='courseListUrl'>
+                        <span>课程</span>
+                    </a>
+                    <a class="comment" :href='commentUrl'>
+                        <span>学员评价</span>
+                    </a>
+                    <a class="activity" :href='activityListUrl'>
+                        <span>活动</span>
+                    </a>
+                    <a class="wall" :href='wallUrl'>
+                        <span>荣誉墙</span>
+                    </a>
+                    <a class="teacher" :href='teacherUrl'>
+                        <span>老师</span>
+                    </a>
+                    <a class="phone" :href='"tel://"+info.telephone'>
+                        <span>电话</span>
+                    </a>
+                    <a class="address" :href='mapUrl'>
+                        <span>{{info.address}}</span>
+                    </a>
+                </div>
+                <a class="sweepstake" v-for="item in info.broadcasts" :href='item.url'>
+                    <img :src="item.imgUrl" alt="item.title">
+                </a>
+                <div class="course-list f-clearfix">
+                    <a class="item" v-for='item in info.recCourses' :href='courseUrl+"?id="+item.id'>
+                        <img :src="item.coverImg">
+                        <div class="title">{{item.title}}</div>
+                    </a>
+                    <a class="item" v-for='item in info.recActivities' :href='activityUrl+"?id="+item.id'>
+                        <img :src="item.coverImg">
+                        <div class="title">{{item.title}}</div>
+                    </a>
+                </div>
+
+            </div>
+        
+            <div class="group__ft">
+                <div class="title">润教育联盟机构</div>
+                <div class="shield-con f-clearfix">
+                    <div class="shield">
+                        <i class="icon-shield"></i>认证机构
+                    </div>
+                    <div class="shield">
+                        <i class="icon-shield"></i>底价承诺
+                    </div>
+                    <div class="shield">
+                        <i class="icon-shield"></i>消费保障
+                    </div>
+                    <div class="shield">
+                        <i class="icon-shield"></i>无忧售后
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>

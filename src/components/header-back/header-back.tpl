@@ -1,0 +1,1 @@
+<ui-icon :name="name" @click='back'></ui-icon>

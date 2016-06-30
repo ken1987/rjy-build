@@ -1,0 +1,87 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.order-list {
+	.item {
+		display: block;
+		position: relative;
+		.px2rem(padding, @spacing-vertical-base);
+		border-bottom: 1px solid @color-gray4;
+		background-color: @color-white;
+		&:last-child {
+			border-bottom: 0;
+		}
+
+		img {
+			position: absolute;
+			.px2px(width, 130);
+			.px2px(height, 130); 
+		}
+		// 文字部分 
+		.infor {
+			position: relative;
+			.px2px(margin-left, 150);
+			.name {
+				.px2px(margin-bottom, 8);
+				.px2px(font-size, @font-size-h2);
+				color: @color-black;
+				.text-overflow();
+			}
+			.group {
+				.px2px(margin-bottom, 4);
+				.px2px(font-size, @font-size-h4);
+				color: @color-strong;
+			}
+			.price {
+				color: @color-gray6;
+			}
+			// 橙色突出
+			.highlight {
+				color: @color-success;
+			}
+			.action {
+				.px2rem(margin-top, -30);
+				.px2rem(min-height, 30);
+				color: @color-success;
+				text-align: right;
+				.tip {
+					.px2rem(margin-top, 16);
+					.px2px(font-size, 22);
+					color: @color-gray5;
+				}
+			}
+		}
+		.reply {
+			position: relative;
+			.px2rem(margin-top, @spacing-vertical-base);
+			.px2rem(padding, 0, @spacing-vertical-small, @spacing-vertical-small);
+			.px2rem(border-radius, 8);
+			background-color: #efedec;
+			&:before {
+				content: '';
+			    position: absolute;
+			    .px2rem(top, -10); 
+			    .px2rem(left, 50); 
+			    .px2rem(width, @spacing-vertical-small); 
+			    .px2rem(height, @spacing-vertical-small);
+			    background-color: #efedec;
+			    
+				transform: rotate(45deg);
+				transform-origin: center center;
+			}
+			.title {
+				.px2rem(margin-bottom, @spacing-vertical-small);
+				.px2rem(line-height, 88);
+				border-bottom: 1px solid @color-gray4;
+			}
+			.btns {
+				text-align: right;
+				.px2rem(margin-top, @spacing-vertical-small);
+				.btn-s + .btn-s {
+					.px2rem(margin-left, @spacing-vertical-small);
+				}
+			}
+		}
+	}
+}
+

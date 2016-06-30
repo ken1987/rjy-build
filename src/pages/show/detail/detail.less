@@ -1,0 +1,85 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+.show-detail {
+    .video-con {
+        position: relative;
+        .px2rem(width, 640);
+        .px2rem(height, 360);
+        color: @color-white;
+        .video {
+            .px2rem(width, 640);
+            .px2rem(height, 360);
+            overflow: hidden;
+            background: @color-black;
+            video {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .count {
+            position: absolute;
+            .px2rem(top, @spacing-vertical-small);
+            .px2rem(right, @spacing-vertical-base);
+            .px2px(font-size, @font-size-h5);
+            text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+            .icon-play {
+                .px2px(font-size, @font-size-h5);
+                color: @color-white;
+            }
+        }
+        .play {
+            position: absolute;
+            .px2rem(top, 130px);
+            .px2rem(left, 270px);
+            .px2rem(width, 100px);
+            .px2rem(height, 100px);
+            border: 2px solid @color-white;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.25);
+            .icon-triangle_r {
+                .px2rem(margin-left, 34px);
+                .px2px(font-size, 40px);
+                color: @color-white;
+                .px2rem(line-height, 92px);
+            }
+        }
+        .ranking {
+            position: absolute;
+            top: 0;
+            .px2rem(left, @spacing-vertical-small);
+            .px2rem(width, 169px);
+            .px2rem(height, 44px);
+            .px2rem(line-height, 44px);
+            .px2px(font-size, 20);
+            text-align: center;
+            background: url(images/s1.png?__sprite);
+            background-size: cover;
+        }
+    }
+    .infor {
+        .px2rem(margin-bottom, @spacing-vertical-base);
+        .px2rem(padding, @spacing-vertical-small, @spacing-vertical-base);
+        line-height: @line-height-base;
+        background-color: @color-white;
+        color: @color-black;
+        .title {
+            .px2px(font-size, @font-size-h2);
+        }
+        .name {
+            // float: left;
+            color: @color-gray7;
+        }
+        div {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    }
+    .tv {
+        .px2rem(padding, 50, @spacing-vertical-base);
+        color: @color-black;
+        text-align: center;
+        background-color: @color-white;
+        background-image: url(images/t1.png?__sprite);
+        background-repeat: repeat-x;
+    }
+}

@@ -1,0 +1,94 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.m-upload {
+	background-color: @color-white;
+	.px2rem(padding, @spacing-vertical-small, @spacing-vertical-base);
+	.px2rem(margin-bottom,  @spacing-vertical-base);
+	font-size: 0;
+
+	.m-upload__btn {
+		position: relative;
+		display: inline-block;
+		.px2rem(width, 120);
+		.px2rem(height, 120);
+		.px2rem(margin-right, 20);
+		.px2rem(margin-bottom, 20);
+		vertical-align: middle;
+		background-color: @color-gray2;
+		border: 1px solid @color-gray4;
+		
+		input[type="file"] {
+			position: absolute;
+			top: 0;
+			left: 0;
+			.px2rem(width, 120);
+			.px2rem(height, 120);
+			opacity:0;
+		}
+		.icon-camera {
+			// position: absolute;
+			.px2rem(top, 30);
+			.px2rem(left, 34);
+			.px2rem(font-size, 52);
+			line-height: 1;
+		}
+	}
+	.m-upload__img {
+		display: inline-block;
+		position: relative;
+		vertical-align: middle;
+		.px2rem(width, 120);
+		.px2rem(height, 120);
+		.px2rem(margin-right, 20);
+		.px2rem(margin-bottom, 20);
+		img {
+			.px2rem(width, 120);
+			.px2rem(height, 120);
+		}
+		.del {
+			position: absolute;
+			.px2px(top, -16);
+			.px2px(right, -16);
+			.px2rem(width, 30);
+			.px2rem(height, 30);
+			.px2rem(border-radius, 15);
+			background-color: #ff3939;
+			&:before {
+				content: '';
+				display: inline-block;
+				.px2rem(width, 16);
+				.px2rem(height, 2);
+				background-color: @color-white;
+			}
+		}
+	}
+	.tip {
+		.px2px(font-size, @font-size-h5);
+		color: @color-gray5;
+	}
+}
+.m-scores {
+	.px2rem(padding, 0, @spacing-vertical-base, @spacing-vertical-base);
+	.px2rem(margin-bottom,  @spacing-vertical-base);
+	background-color: @color-white;
+	
+	.m-scores__item {
+		.px2rem(padding-top, @spacing-vertical-base); 
+		color: @color-black;
+	}
+	.stars {
+		float: right;
+		i {
+			.px2px(margin-left, 6);
+		}
+	}
+	.icon-collect3 {
+		.px2px(font-size, 32);
+		color: @color-gray4;
+	}
+	.icon-collected3{
+		.px2px(font-size, 32);
+	    color: @color-success;
+	}
+}

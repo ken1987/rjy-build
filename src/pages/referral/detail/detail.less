@@ -1,0 +1,56 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.p-reward {
+    .infor {
+        .px2rem(margin-bottom, @spacing-vertical-large);
+        background-color: @color-white;
+        border-bottom: 1px solid @color-gray4;
+
+    }
+    .group-name {
+        .px2rem(padding-left, @spacing-vertical-base);
+        .px2px(line-height, 88);
+        color: @color-black;
+        border-bottom: 1px solid @color-gray4;
+    }
+    .detail {
+        .px2rem(padding, @spacing-vertical-base);
+        color: @color-black;
+        line-height: @line-height-base;
+        .w50 {
+            float: left;
+            width: 50%;
+        }
+    }
+    .reward-list {
+        background-color: @color-white;
+        .item {
+            .px2rem(padding, @spacing-vertical-base);
+            color: @color-black;
+            line-height: @line-height-base;
+            border-bottom: 1px solid @color-gray4;
+            
+            .time,
+            .tip {
+                position: relative;
+                .px2px(font-size, 24);
+                color: @color-gray5;
+            }
+            .time {
+                position: relative;
+                // .px2px(line-height, 30);
+                &:before {
+                    content: '';
+                    position: absolute;
+                    .px2rem(left, -@spacing-vertical-base);
+                    .px2px(top, 4);
+                    .px2px(width, 8);
+                    .px2px(height, 30);
+                    background-color: @color-primary;
+                }
+            }
+        }   
+    }
+}   
+    

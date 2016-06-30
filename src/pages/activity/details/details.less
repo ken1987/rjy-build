@@ -1,0 +1,55 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.activity-detail {
+	.time {
+		.px2px(min-height, 80);
+		margin-left: 0!important;
+		margin-top: -1px;
+		.px2rem(padding-left, 30);
+		line-height: 1;
+		background-color: #f2f9ec;
+		border-top: 1px solid @color-gray4;
+		border-bottom: 1px solid @color-gray4;
+	}
+	.map-call{
+		display: flex;
+		align-items: center;
+	}
+	.map {
+		display: flex;
+		align-items: center;
+		.px2rem(width, 510);
+		border-right: 1px solid @color-gray4;
+		&:before {
+			.px2rem(margin-right, @spacing-vertical-small);
+		}
+	}
+	.map__text{
+		flex-grow: 1;
+		.name {
+			.px2px(font-size, 32);
+			color: @color-black;
+			flex-grow: 1;
+		}
+	}
+	.call {
+		.px2rem(width, 90);
+		.px2rem(line-height, 80);
+		.px2rem(margin-right, -@spacing-vertical-base);
+		vertical-align: middle;
+		text-align: center;
+		.icon-call {
+			.px2px(font-size, 40);
+			color: @color-primary;
+		}
+		
+	}
+	// .ico-host,
+	// .ico-detail,
+	// .ico-tip,
+	// .ico-cooperation {
+	//     float: left;
+	//     .px2px(margin-right, @spacing-vertical-small);
+	// }
+}

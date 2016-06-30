@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body class="p-reservation" id="wrap">
+    <ui-header :title='title'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <!--banner-->
+    <ui-banner :items='banner'></ui-banner>
+
+    <div class="m-box">
+        <div class="m-box__text" style="text-indent: 2em">
+            小予世纪成立于2006年；在长达10年的时间里，小予世纪不断创作出优秀的影视作品。现今，小予推出了一款专门为小朋友量身定做的特色MV产品。小予称之为“奇幻之旅”；小予结合多年的拍摄经验和电影技术，将宝贝的童年记忆以美妙的方式深深留存；正值夏季，小予携手深圳润·教育，共同为宝贝打开奇幻之门。
+        </div>
+    </div>
+
+    <div class="m-box">
+        <div class="m-box__title">企业作品</div>
+        <div class="video-con">
+            <div class="video-list">
+                <div class="item" v-for="work in works" @click="showMovie(work)">
+                    <img :src="work.coverImg" />
+                </div>
+            </div>
+            
+<!--             <video width="120" height="67" controls="controls">
+                <source src="https://o4jeap1oz.qnssl.com/5337364644673216512_360p_v1.m3u8" />
+            </video> -->
+
+        </div>
+    </div>
+
+    <div class="m-box">
+        <div class="m-box__title">润·教育会员专享套餐</div>
+        <a class="m-box__flex solution" href="detail1.html">
+            <div class="item">套餐一：裸拍（棚拍，不抠像）化妆、剪辑、配乐、灯光</div>
+            <div class="money"><span class="f-c-success">1200</span>元</div>
+            <i class="icon-arr-right"></i>
+        </a>
+        <a class="m-box__flex solution"  href="detail2.html">
+            <div class="item">套餐二：棚拍，抠像（带定制模板）化妆、剪辑、配乐、灯光</div>
+            <div class="money"><span class="f-c-success">1800</span>元</div>
+            <i class="icon-arr-right"></i>
+        </a>
+        <a class="m-box__flex solution" href="detail3.html">
+            <div class="item">套餐三：棚拍，抠像（自定制模板）化妆、剪辑、配乐、灯光</div>
+            <div class="money"><span class="f-c-success">5500</span>元</div>
+            <i class="icon-arr-right"></i>
+        </a>
+    </div>
+    <div class="m-box">
+        <div class="m-box__title">联系方式</div>
+        <a class="m-box__flex" href="tel:0755-83220383">
+            <i class="icon-call"></i>
+            <div class="item">0755-83220383</div>
+            <i class="icon-arr-right"></i>
+        </a>
+        <a class="m-box__flex" href="tel:13923735980">
+            <i class="icon-call"></i>
+            <div class="item">13923735980  莫小姐 </div>
+            <i class="icon-arr-right"></i>
+        </a>
+        <a class="m-box__flex" href="tel:13866889988">
+            <i class="icon-call"></i>
+            <div class="item">13866889988  邹小姐 </div>
+            <i class="icon-arr-right"></i>
+        </a>
+        <div class="m-box__flex">
+            <i class="icon-clock"></i>
+            周一至周五 9:00-20:00
+        </div>
+        <div class="m-box__flex">
+            <i class="icon-map"></i>
+            <div class="item">
+                深圳市福田区车公庙泰然九路212栋807
+            </div>
+        </div>
+    </div>
+    <ui-scroll-top></ui-scroll-top>
+    <ui-dialog :show='dialog'></ui-dialog>
+</body>
+
+</html>

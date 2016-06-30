@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap">
+    <!--下载条-->
+    <ui-banner-download></ui-banner-download>
+    <!--banner-->
+    <ui-banner :items='banner'></ui-banner>
+    <div class="bd">
+        <!-- 附近机构 -->
+        <div class="m-panel">
+            <div class="m-panel__hd"> 
+                <div class="m-panel__hd__title">
+                    <i class="icon-flag"></i>
+                    附近机构
+                </div>
+                <a class="m-panel__hd__more" href='/group/list.html'>更多</a>
+            </div>
+            <div class="m-panel__bd near-groups f-clearfix" v-if='near'>
+                <a class="near-group" v-for='item in near' :href='item.url'>
+                    <div class="m-tag-img">
+                        <img :src="item.coverImg">
+                        <span class='m-tag-img__tag'>综合评分: 
+                        <template v-if="item.avgScore !== '0' ">{{item.avgScore}}</template>
+                        <template v-else>暂无评分</template>
+                        </span>
+                    </div>
+                    <div class="title">{{item.groupName}}</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="m-panel">
+            <!-- 润头条 -->
+            <div class="m-panel__hd toplines">
+                <span class='toplines-title'>润头条</span>
+
+                <ui-swiper-headline :items='headline'></ui-swiper-headline>
+
+            </div>
+            <!-- 主要科目 -->
+            <div class="m-panel__bd categorys f-clearfix" v-if='categorys'>
+                <a class="category" v-for='item in categorys' :href='item.url'>
+                    <img :src="item.imgUrl">
+                    <div class="title">{{item.title}}</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 专题活动 -->
+        <div class="m-panel">
+            <div class="m-panel__hd">
+                <div class="m-panel__hd__title">
+                    <i class="icon-fire"></i>
+                    专题活动
+                </div>
+            </div>
+            <div class="m-panel__bd" v-if='activity'>
+                <a class="activity" v-for='item in activity' :href='item.url'>
+                    <img :src="item.imgUrl">
+                </a>
+            </div>
+        </div>
+
+        <!-- 推荐机构 -->
+        <div class="m-panel">
+            <div class="m-panel__hd">
+                <div class="m-panel__hd__title">
+                    <i class="icon-good2"></i>
+                    推荐机构
+                </div>
+            </div>
+            <div class="m-panel__bd groups f-clearfix" v-if='groups'>
+                <a class="group" v-for='item in groups' :href='item.url'>
+                    <img :src="item.imgUrl">
+                    <div class="group-content">
+                        <div class='group-title'>{{item.groupName}}</div>
+                        <div class='group-score' v-if="item.avgScore !== '0' ">综合评分 {{item.avgScore}}</div>
+                        <div class='group-score' v-else>综合评分 暂无</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 推荐课程 -->
+        <div class="m-panel">
+            <div class="m-panel__hd">
+                <div class="m-panel__hd__title">
+                    <i class="icon-hearted"></i>
+                    推荐课程
+                </div>
+            </div>
+            <div class="m-panel__bd" v-if='courses'>
+                <a class="course" v-for='item in courses' :href='item.url'>
+                    <div class="m-tag-img">
+                        <img :src="item.imgUrl">
+                        <span class='m-tag-img__tag' v-if="item.classNum">{{item.classNum}}节课</span>
+                    </div>
+                    <div class="course__info">
+                        <div class="course__name">{{item.courseName}}</div>
+                        <div class="course__price">
+                            <div class='course__price__new'>￥<span>{{item.discountPrice}}</span></div>
+                            <div class='course__price__old'>￥{{item.originPrice}}</div>
+                        </div>
+                        <span class="course__group">{{item.groupName}}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--返回顶部-->
+    <ui-scroll-top></ui-scroll-top>
+</body>
+
+</html>

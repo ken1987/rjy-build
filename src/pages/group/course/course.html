@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header title='课程'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <div class="course-filter" v-show='category.length'>
+            <span :class="{'z-active':curId==''}" @click="loadCourseBySubject('')">全部</span>
+            <span :class="{'z-active':curId==cate.id}" v-for='cate in category' @click="loadCourseBySubject(cate.id)">{{cate.name}}</span>
+        </div>
+        <ui-list :is-last-page='isLastPage' :is-loading='isLoading' :is-empty='isEmpty' @load-more='onLoadMore'>
+            <div class="courses" v-if='items.length'>
+                <div class="item" v-for='item in items' >
+                    <a class="infor" :href='courseUrl+"?id="+item.id'>
+                        <img :src="item.coverImg">
+                        <div class="text">
+                            <div class="name">{{item.name}}</div>
+                            <div class="price"><span class="number">{{item.price}}</span>元</div>
+                        </div>
+                        <i class="icon-arr-right"></i>
+                    </a>
+                    <div class="date">
+                        上课时间：{{item.classRemark}}
+                    </div>
+                </div>
+                    
+            </div>
+        </ui-list>
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

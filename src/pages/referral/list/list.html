@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap" class="p-shops">
+        <ui-header title='选择网店'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+
+        <div class="shop-title">请选择网店</div>
+
+        <ul class="shop-list">
+            <li v-for="group in groups" v-link="{path: '/detail/'+ group.groupId +'/' + group.code }">
+                <a>
+                    <div class="name">{{group.groupName}}</div>
+                    <div class="f-c-weak">推荐码: {{group.code}}</div>
+                </a>
+            </li>
+        </ul>
+        
+        <ui-scroll-top></ui-scroll-top>
+        
+        <!--loading 动画-->
+        <!--  <ui-loading :is-loading="isLoading"></ui-loading> -->
+    </div>
+</body>
+</html> 

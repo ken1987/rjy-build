@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header title='发表评论'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <div class="m-streak"></div>
+        <textarea class="u-textarea" 
+            style="height: 80px;" 
+            placeholder="写下对机构和课程的评价，对别人的帮助很大哦!" 
+            v-model="info.content"></textarea>
+        
+        <div class="m-upload">
+            <button class="m-upload__btn" >
+                <input type="file"  @change='uploadImgs($event)'lazy id="uploadImg" name="myfile" value=""/>
+                <i class="icon-camera"></i>
+            </button>
+
+            <div class="m-upload__img" v-for='item in imgs'>
+                
+                <img :src="item">
+                <button class="del" @click='closeImg($index)'></button>
+            </div>
+
+            <div class="tip">上传照片，有图有真相！(<span>{{imgs.length}}</span>/5)</div>
+
+            <div id="progressbar" style="font-size:12px;color:#999;">
+                <div v-if="info.isUpload">正在上传中...</div>
+                <div :style="{'width': info.percent +'%' }" style="height:10px;background:#6fb92c;"></div>
+            </div>
+            
+        </div>
+        
+        <div class="m-scores">
+            <div class="m-scores__item">
+                <span>服务态度</span>
+                <div class="stars">
+                    <i v-for='item in 5' :class="item<info.serviceScore?'icon-collected3':'icon-collect3'" @click='info.serviceScore=$index+1'></i>
+                </div>
+            </div>
+            <div class="m-scores__item">
+                <span>教学环境</span>
+                <div class="stars">
+                    <i v-for='item in 5' :class="item<info.envScore?'icon-collected3':'icon-collect3'" @click='info.envScore=$index+1'></i>
+                </div>
+            </div>
+            <div class="m-scores__item">
+                <span>专业水平</span>
+                <div class="stars">
+                    <i v-for='item in 5' :class="item<info.proScore?'icon-collected3':'icon-collect3'" @click='info.proScore=$index+1'></i>
+                </div>
+            </div>
+            <div class="m-scores__item">
+                <span>课程内容</span>
+                <div class="stars">
+                    <i v-for='item in 5' :class="item<info.courseScore?'icon-collected3':'icon-collect3'" @click='info.courseScore=$index+1'></i>
+                </div>
+            </div>
+        </div>
+        <div class="m-b-div"></div>
+        <div class="m-b-con">
+            <div class="content">
+                <button class="btn btn_big btn_block" @click="addComment">{{isLoading?"正在提交":"发表评论"}}</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

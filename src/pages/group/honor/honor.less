@@ -1,0 +1,20 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.honor-detail {
+	.px2rem(padding, @spacing-vertical-base);
+	line-height: @line-height-small;
+	background-color: @color-white;
+	// text-align: center;
+	div,
+	p {
+		.px2rem(margin-bottom, @spacing-vertical-base);
+		margin-top: 0;
+		text-align: left;
+		// text-indent: 2em;
+	}
+	img {
+		max-width: 100%;
+		.px2rem(margin-bottom, @spacing-vertical-base);
+	}
+}

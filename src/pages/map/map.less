@@ -1,0 +1,29 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+#mapContainer {
+    position: absolute;
+    .px2px(top, 88);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .m-map-overlay {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        width: 200px;
+        padding: 15px;
+        -moz-user-select: none;
+        font-size: 16px;
+        border-radius: 10px;
+        line-height: 1.5;
+    }
+    
+    .m-map-overlay-tri {
+        background: url(arr.png) no-repeat;
+        background-size: 15px 10px;
+        position: absolute;
+        width: 15px;
+        height: 10px;
+        overflow: hidden;
+    }
+}

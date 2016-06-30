@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body class="order" id="wrap">
+    <ui-header title='订单详情'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <template v-if='info'>
+        <div class="m-box">
+            <a class="m-box__flex" :href='infoUrl'>
+                <img class="size2" :src="info.group.logo" @error='getDefaultImg'>
+                <div class="item">
+                    <div class="name">{{info.courseName}}</div>
+                    <div class="tip highlight2">{{info.group.groupName}}</div>
+                </div>
+                <i class="icon-arr-right"></i>
+            </a>
+            <a class="m-box__flex arr" href="tel:{{info.group.telephone}}">
+                <i class="icon-call"></i>
+                <div class="item">{{info.group.telephone}}</div>
+            </a>
+        </div>
+        <div class="m-box" v-if='info.classtime'>
+            <div class="m-box__title">
+                上课时间
+            </div>
+            <div class="m-box__text">
+                {{info.classtime}}
+            </div>
+        </div>
+        <div class="m-box state" v-if='info.statusHises && info.statusHises.length'>
+            <div class="m-box__flex" v-for='item in info.statusHises'>
+                <div class="item2">
+                    {{item.remark}}
+                </div>
+                <div class="item2">
+                    <div class="time">
+                        {{item.createTime}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-box">
+            <template v-if='info.status < 11'>
+                <div class="m-box__flex">
+                    <div class="item2">
+                        <div class="name">应付款</div>
+                    </div>
+                    <div class="item2" v-if='info.cashPrice && info.cashPrice!=0'>
+                        <div class="tip">
+                            <span class="price highlight">{{info.cashPrice}}</span>元
+                        </div>
+                        <div class="tip" v-if='info.couponPrice>0'>
+                            (优惠券 -{{info.couponPrice}}元)
+                        </div>
+                        <div class="tip" v-if='info.referalPrice>0'>
+                            (推荐码 -{{info.referalPrice}}元)
+                        </div>
+                    </div>
+                    <div class="item2" v-else>
+                        <div class="tip">
+                            <span class="price highlight">免单</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template v-else>
+                <div class="m-box__title">
+                    支付信息
+                </div>
+                <div class="m-box__flex">
+                    <div class="item2">
+                        课程总价
+                    </div>
+                    <div class="item2">
+                        {{info.amountPrice}}<span class="tip">元</span>
+                    </div>
+                </div>
+                <div class="m-box__flex">
+                    <div class="item2">
+                        <div class="name">实付款</div>
+                    </div>
+                    <div class="item2" v-if='info.cashPrice && info.cashPrice!=0'>
+                        <div class="tip">
+                            <span class="price highlight">{{info.cashPrice}}</span>元
+                        </div>
+                        <div class="tip" v-if='info.couponPrice>0'>
+                            (优惠券 -{{info.couponPrice}}元)
+                        </div>
+                        <div class="tip" v-if='info.referalPrice>0'>
+                            (推荐码 -{{info.referalPrice}}元)
+                        </div>
+                    </div>
+                    <div class="item2" v-else>
+                        <div class="tip">
+                            <span class="price highlight">免单</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <!-- 不同意退课 -->
+            <template v-if='info.refundFailCause'>
+                <div class="m-box__title">
+                    不同意退课理由：
+                </div>
+                <div class="m-box__text">
+                    {{info.refundFailCause}}
+                </div>
+            </template>
+        </div>
+
+        <div class="g-con-b box">
+            <template v-if="info.status==1">
+                <div class="flex">
+                    <button class="btn btn_big btn_block btn_gray" @click='cancel'>取消订单</button>
+                </div>
+                <div class="flex">
+                    <button class="btn btn_big btn_block" @click='pay'>立即付款</button>
+                </div>
+            </template>
+            <template v-if="info.status==2">
+                <div class="flex">
+                    <button class="btn btn_gray btn_big btn_block" @click='refund'>退课</button>
+                </div>
+                <div class="flex">
+                    <button class="btn btn_big btn_block" @click='confirm'>确认开课</button>
+                    <div class="remind" v-if='info.confirmReminder'>{{info.confirmReminder}}</div>
+                </div>
+            </template>
+            <template v-if="info.status==5">
+                <div class="flex">
+                    <button class="btn btn_gray btn_big btn_block" @click='complaint'>投诉</button>
+                </div>
+                <div class="flex">
+                    <button class="btn btn_big btn_block" @click='accept'>接受</button>
+                </div>
+            </template>
+            <template v-if="info.status==10">
+                <button class="btn btn_big btn_block" @click='comment'>发表评论</button>
+            </template>
+        </div>
+    </template>
+    <ui-dialog :show.sync='dialog'></ui-dialog>
+</body>
+
+</html>

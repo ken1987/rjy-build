@@ -1,0 +1,244 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+.p-form {
+    .f-mb10 {
+        margin-bottom: 10px;
+    }
+    .pact-data-tip {
+        padding: 10px;
+        color: #917643;
+        background-color: #fee4b4;
+    }
+    .pact-data {
+        padding: 10px;
+        background-color: #fff;
+        .u-title {
+            font-size: 16px;
+        }
+        .u-title:before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: #6eb92b;
+            margin-right: 5px;
+            vertical-align: middle;
+            margin-top: -2px;
+        }
+    }
+    .form-group.z-error {
+        .form-group__item {
+            .txt-input {
+                border-color: #ee6464;
+            }
+        }
+    }
+    .form-group {
+        .form-group__title {
+            display: block;
+            width: 80px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.2;
+            &.z-required:before {
+                content: '*';
+                float: left;
+                width: 8px;
+                height: 18px;
+                color: #6eb92b;
+                margin-right: 5px;
+            }
+        }
+        .chain {
+            margin-top: -52px;
+        }
+        .area {
+            label {
+                margin-top: -96px;
+            }
+            select {
+                width: 100%;
+            }
+        }
+        .txt-input {
+            width: 100%;
+            padding: 10px 3px;
+            line-height: 22px;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+        }
+        select {
+            height: 44px;
+            padding: 10px;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+        }
+        .course {
+            a.btn {
+                width: 30%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                line-height: 22px;
+            }
+            select {
+                width: 66%;
+            }
+        }
+        .tags {
+            margin-left: 80px;
+            padding-top: 10px;
+        }
+        .u-tag {
+            display: inline-block;
+            background: #fff1cd;
+            border: 1px solid #fbd87b;
+            border-radius: 4px;
+            color: #333;
+            padding: 8px 16px;
+            line-height: 16px;
+            margin-right: 10px;
+            margin-top: 10px;
+            i {
+                display: inline-block;
+                height: 16px;
+                width: 16px;
+                text-align: center;
+                color: #999;
+                font-style: normal;
+                margin-right: -10px;
+                cursor: pointer;
+                font-family: arial;
+            }
+        }
+    }
+    .form-group__item {
+        display: -webkit-box;
+        display: box;
+        -webkit-box-align: center;
+        box-align: center;
+        margin-top: 10px;
+        .bd {
+            -webkit-box-flex: 1;
+            box-flex: 1;
+        }
+    }
+    .form-group__tip {
+        margin-left: 80px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #ea3d3d;
+        &:before {
+            content: '';
+            float: left;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            background: url('../images/1.png');
+            background-size: cover;
+        }
+    }
+    .pact-data .star-list {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .pact-data .star-list .title {
+        text-align: center;
+    }
+    .pact-data .star-list a {
+        display: block;
+        position: relative;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #f8f8f8;
+        border: 1px solid #dcdcdc;
+        line-height: 1.5;
+        .text {
+            display: none;
+        }
+    }
+    .pact-data .star-list a.on {
+        background-color: #fdebd7;
+        border-color: #ff8a0e;
+        .text {
+            display: block;
+        }
+    }
+    .pact-data .star-list a.on:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        bottom: 0;
+        right: 0;
+        background: url(../images/moblie25.png);
+        background-size: cover;
+    }
+    .pack-course {
+        overflow: hidden;
+        padding-top: 15px;
+    }
+    .pack-course li {
+        margin-bottom: 10px;
+    }
+    .pack-course li a {
+        display: block;
+        width: 100%;
+    }
+    .btns {
+        font-size: 0;
+        .btn {
+            width: 48%;
+        }
+        .btn + .btn {
+            margin-left: 4%;
+        }
+    }
+
+    /*勾选样式*/
+    .m-choose_ib {
+        font-size: 0;
+        .m-choose__item {
+            position: relative;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #f8f8f8;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+            overflow: hidden;
+
+            input{
+                position: absolute;
+                left:-1000px;
+                top:-10000px;
+            }
+        }
+        .m-choose__item.w50 {
+            width: 46%;
+        }
+        .m-choose__item.w50:nth-child(odd){
+            margin-right: 4%;
+        }
+        .m-choose__item.w50:nth-child(even){
+            margin-left: 4%;
+        }
+        .m-choose__item.on {
+            background-color: #fdebd7;
+            border-color: #ff8a0e;
+        }
+        .m-choose__item.on:after {
+            content:"";
+            position:absolute;
+            z-index: 1;
+            width: 16px;
+            height: 16px;
+            bottom: 0;
+            right: 0;
+            background: url(../images/moblie25.png);
+            background-size: cover;
+        }
+    }
+}

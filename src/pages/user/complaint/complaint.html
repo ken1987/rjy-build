@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap">
+    <ui-header :title='title'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <div class="m-streak"></div>
+    <textarea class="u-textarea" placeholder="输入您要投诉的具体内容" v-model="content"></textarea>
+    <div class="g-con f-tac">
+        <button class="btn w300" @click="complain">提交投诉</button>
+    </div>
+    <div class="complaint-tip">
+        请详细阐述您需要投诉的具体内容，如教学环境、老师水平、课程内容、机构服务等，以便我们及时处理您的投诉并反馈处理结果，非常感谢。
+    </div>
+    <div class="m-box">
+        <a class="m-box__flex" href="tel:{{telephone}}">
+            <i class="icon-call"></i>
+            <div class="item">客服电话：{{telephone}}</div>
+            <i class="icon-arr-right"></i>
+        </a>
+    </div>
+    <ui-dialog :show.sync='dialog'></ui-dialog>
+</body>
+
+</html>

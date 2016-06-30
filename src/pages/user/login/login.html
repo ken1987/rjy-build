@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+<body>
+    <div id="wrap">
+        <!-- 头部 -->
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <!-- 登录 -->
+        <validator name="validation">
+            <div class='m-form'>
+                <div class="m-form__item">
+                    <i class="icon-phone"></i>
+                    <input 
+                        class="text-input" 
+                        type="text" 
+                        placeholder="手机号码" 
+                        v-model="mobile"
+                        v-validate:mobile="{required:true,mobile:true}"
+                    >
+                </div>
+                <div class="m-form__item" v-show='!loginType'>
+                    <i class="icon-lock"></i>
+                    <input 
+                        class="text-input" 
+                        placeholder="密码" 
+                        :type="showPassword?'text':'password'" 
+                        v-model="password"
+                        v-validate:password="{required:true,minlength:6}">
+                    <i :class="showPassword?'icon-see':'icon-nosee'" @click='togglePassword'> </i>
+                </div> 
+                <div class="m-form__item" v-show='loginType'>
+                    <i class="icon-code"></i>
+                    <input 
+                        class="text-input" 
+                        type="text" 
+                        placeholder="验证码" 
+                        maxlength="4" 
+                        v-model="code"
+                        v-validate:code="{required:true,minlength:4,maxlength:4}">
+                    <ui-button-code
+                        size='small' 
+                        :time.sync='time'
+                        @click="getCodeBySMS"></ui-button-code>
+                </div>
+            </div>
+        </validator>
+        <div class="g-con">
+            <ui-button type='primary' size='big' block='true' @click="login">
+                {{isLogining?'正在登录...':'登录'}}
+            </ui-button>
+        </div>
+        <!-- 切换方式 -->
+        <div class="g-con f-clearfix" v-show='!loginType'>
+            <a class="f-c-strong f-fl" @click='changeLoginType(1)'>短信验证登录</a>
+            <a class="f-c-strong f-fr" href="password.html">忘记密码？</a>
+        </div>
+        <div class="g-con f-clearfix" v-show='loginType'>
+            <a class="f-c-strong f-fl" @click='changeLoginType(0)'>账号密码登录</a>
+            <a class="f-c-strong f-fr" @click='getCodeByTel'>语音验证码</a>
+        </div>
+        <!-- 注册 -->
+        <div class="register-con">
+            <span>没有账号</span>
+            <a class="f-c-success" :href="registerUrl">立即注册</a>
+            <i class="icon-go"></i>
+        </div>
+    </div>
+</body>
+
+</html>

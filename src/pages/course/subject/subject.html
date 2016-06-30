@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>   
+        
+        <template v-if="!hiddenLoading">
+            <div class="subject-list">
+
+            	<div class="item" v-for="menu in menus">
+
+                    <div class="title">
+                        <i class="{{menu.pyname}}"></i>
+                        {{menu.name}}
+                    </div>
+                    <div class="classify">
+                        <a v-for="item in menu.items" :href='item.url'>{{item.name}}</a>    
+                    </div>
+
+            	</div>
+            </div>
+
+        </template>
+
+
+        <ui-scroll-top></ui-scroll-top>
+        <ui-loading :is-loading="isLoading"></ui-loading>
+    </div>
+</body>
+
+</html>

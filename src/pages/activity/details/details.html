@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div class="activity-detail" id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <template v-if='!isLoading && info'>
+            <ui-banner :items='info.images'></ui-banner>
+            <div class="m-box">
+                <div class="m-box__flex">
+                    <div class="item">
+                        <div class="name">{{info.title}}</div>
+                        <div class="detail">{{info.subtitle}}</div>
+                        <div class="tip highlight">
+                            <span class="price">{{info.fee}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-box" v-if='info.group'>
+                <div class="m-box__title" v-show="info.group.groupName">
+                    主办机构
+                </div>
+                <a class="m-box__flex group" :href="info.groupUrl" v-if='info.group'>
+                    <img class="size3" :src="info.group.logo">
+                    <div class="item">
+                        <div class="name">{{info.group.groupName}}</div>
+                    </div>
+                    <i class="icon-arr-right"></i>
+                </a>
+            </div>
+            <div class="m-box">
+                <div class="m-box__text map-call">
+                    <a class="map icon-map" :href="info.mapUrl">
+                        <div class="map__text">
+                            <div class="name">{{info.address.abbreName}}</div>
+                            {{info.address.name}}
+                        </div>
+                    </a>
+                    <a class="call" :href="'tel://'+info.mobile" v-if='info.mobile'>
+                        <i class="icon-call"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="m-box">
+                <div class="m-box__title">
+                    活动详情
+                </div>
+                <div class="m-box__text time">
+                    <i class="icon-clock"></i> {{info.activityTime}}
+                </div>
+                <div class="m-box__text">{{{info.desc}}}</div>
+            </div>
+            <div class="m-box" v-if='info.tips'>
+                <div class="m-box__title">便民贴士</div>
+                <div class="m-box__text">{{info.tips}}</div>
+            </div>
+            <div class="m-box" v-if='info.businessPhone'>
+                <div class="m-box__title">商务合作</div>
+                <a class="m-box__flex" :href="'tel:'+info.businessPhone">
+                    <i class="icon-call"></i>
+                    <div class="item">{{info.businessPhone}}</div>
+                    <i class="icon-arr-right"></i>
+                </a>
+            </div>
+            <template v-if="info.signStatus != 1">
+                <div class="m-b-div"></div>
+                <div class="m-b-con">
+                    <div class="content">
+                        <button class="btn btn_big btn_block btn_orange" @click="submit()" v-if="info.signStatus == 0">
+                            {{isSubmit?"正在提交...":"报名"}}
+                        </button>
+                        <button class="btn btn_big btn_block z-disabled" @click="deleteSubmit()" v-if="info.signStatus == 2">
+                            取消报名
+                        </button>
+                        <button class="btn btn_big btn_block z-disabled" v-if="info.signStatus == 3">
+                            报名即将开始
+                        </button>
+                        <button class="btn btn_big btn_block z-disabled" v-if="info.signStatus == 4">
+                            报名已结束
+                        </button>
+                        <button class="btn btn_big btn_block z-disabled" v-if="info.signStatus == 5">
+                            报名已满
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </template>
+        <ui-scroll-top></ui-scroll-top>
+        <ui-dialog :show.sync='dialog'></ui-dialog>
+    </div>
+</body>
+
+</html>

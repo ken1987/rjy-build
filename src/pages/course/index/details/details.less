@@ -1,0 +1,94 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.course-detail {
+	del {
+		.px2px(font-size, 20);
+	}
+	.course-images {
+		position: relative;
+		.px2rem(height, 230);
+		overflow: hidden;
+		.img-con {
+			position: absolute;
+			.px2rem(min-width, 640);
+			white-space: nowrap;
+			.px2rem(height, 210);
+			.px2rem(padding, @spacing-vertical-small, @spacing-vertical-base);
+		}
+		img {
+			// float: left;
+			.px2rem(width, 210);
+			.px2rem(height, 210);
+			.px2rem(margin-bottom, @spacing-vertical-small);
+			.px2rem(margin-right, 10);
+			vertical-align: middle;
+		}
+		// img:nth-child(3n+3) {
+		// 	.px2rem(margin-right, 0);
+		// }
+	}
+	.checkbigPic {
+		position: fixed;
+		top:0;
+		background-color: rgba(0, 0, 0, 0.4);
+		z-index: 999;
+		.showPic {
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+		}
+		img {
+			position: relative;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+		}
+	}
+	.mengImg {
+		transition-duration: 300ms;
+		position: relative;
+		float: left;
+		height: 100%;
+		img {
+			position: absolute;
+			width: 100%;
+			height: auto;
+			vertical-align: middle;
+		}
+	}	
+	.shield-con {
+		.px2rem(margin-left, -@spacing-vertical-base);
+		.px2rem(margin-right, -@spacing-vertical-base);
+		.px2rem(padding, 24, @spacing-vertical-small, 0, @spacing-vertical-small);
+		border-top: 1px solid lighten(@color-gray5, 20%);
+		.shield {
+			float: left;
+			width: 25%;
+		}
+		.icon-shield {
+			.px2px(font-size, 28);
+			.px2rem(margin-right, 4);
+		}
+	}
+	.m-b-con .content {
+		display: flex;
+		align-items: center;
+		.call {
+			display: inline-block;
+			.px2rem(width, 200);
+			.px2rem(margin-right, @spacing-vertical-small);
+		    text-align: center;
+		    vertical-align: middle;
+		    .icon-tel {
+		    	.px2px(font-size, 36);
+		    	color: @color-gray5;
+		    }
+		}
+		.btn {
+			flex-grow:1;
+		}
+	}
+}
+	
+	

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body class="p-search" id="wrap">
+    <!-- 头部 -->
+    <ui-header :title='title'></ui-header>
+    <!-- 登录 -->
+    <div class='search__title'>查询润教育用户</div>
+    <validator name="validation">
+        <div class="g-con">
+            <input class="t-input" type="text" placeholder="请输入手机号" 
+            v-model="mobile" 
+            v-validate:mobile="{required:true,mobile:true}">
+        </div>
+    </validator>
+    <div class="g-con">
+        <ui-button type='primary' size='big' block='true' @click="searchMoblie">
+            查询
+        </ui-button>
+    </div>
+    <div class="search__tip" v-if="showInfo">
+        
+        <div v-if="exist === 1">
+            <i class="icon-success"></i>
+            <div>该手机号是润教育用户</div>   
+        </div>
+
+        <div v-else>
+            <i class="icon-warn"></i>
+            <div>无该手机号信息</div>            
+        </div>
+
+    </div>
+    <div class='f-tac'>
+        <ui-button type='primary2' class='w300' @click="editInfo">
+            编辑场馆资料 
+        </ui-button>
+    </div>
+</body>
+
+</html>

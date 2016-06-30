@@ -1,0 +1,31 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+.p-success {
+    padding-top: 60px;
+    text-align: center;
+    h2 {
+	    &:before {
+	    	content:'';
+	        width: 90px;
+	        height: 90px;
+	        display: block;
+	        background-image: url(../images/moblie30.png);
+	        background-size: cover;
+	        margin: 0 auto 18px;
+	    }
+        font-size: 20px;
+        font-weight: normal;
+        color: #ff8a0e;
+        margin-bottom: 20px;
+    }
+    p {
+        margin-top: 5px;
+        padding: 0 40px;
+        line-height: 1.5;
+        color: #777777;
+
+        b{
+            color: #ff8a0e;
+        }
+    }
+}

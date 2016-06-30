@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div class="pay-success" id="wrap">
+        <div class="success">
+            您的课程订单已<br>
+            支付成功！
+        </div>
+        <div class="tip">请下载润·教育APP，方便后续享受更多服务。</div>
+        <div class="f-tac">
+            <img src="qrcode.png" alt="下载润·教育APP">
+        </div>
+
+        <div class="g-con f-tac" id="downloaded">
+            <a class="btn w300" @click="clickload()">下载</a>
+        </div>
+
+        <div class="g-con-b f-tac">
+             <a class="btn w300" href='/user/index.html'>返回我的课程</a>
+        </div>
+    </div>
+    
+    <script>
+         var el = document.getElementById('downloaded');
+         window.getCookies = function(){
+            var channelId = "channelId";
+            if (document.cookie.length>0){
+              var c_start=document.cookie.indexOf(channelId + "=");
+              if(c_start!=-1){ 
+                return true;
+              } 
+            }
+            return false;
+        };
+
+        if(window.getCookies()){
+            el.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>

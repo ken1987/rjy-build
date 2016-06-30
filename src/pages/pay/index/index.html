@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div class="pay" id="wrap">
+        <!-- 头部 -->
+        <ui-header title='支付'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <p v-if='isInit'>正在初始化页面...</p>
+        <p v-if='!isInit && !info'>没有找到相关订单!</p>
+        <template v-if='!isInit && info'>
+            <!-- 课程信息 -->
+            <div class="m-box">
+                <a class="m-box__flex" :href='infoUrl'>
+                    <img class="size2" :src="info.group.logo" @error='getDefaultGroupImg'>
+                    <div class="item">
+                        <div class="name">{{info.courseName}}</div>
+                        <div class="tip">{{info.group.groupName}}</div>
+                    </div>
+                </a>
+                <a class="m-box__flex" :href='"tel:"+info.group.telephone'>
+                    <i class="icon-call"></i>
+                    <div class="item">{{info.group.telephone}}</div>
+                    <i class="icon-arr-right"></i>
+                </a>
+            </div>
+            <!-- 课程价格 -->
+            <div class="m-box">
+                <!-- 优惠券 -->
+                <div class="m-box__flex">
+                    <div class="item2">
+                        <div class="name">使用优惠券</div>
+                    </div>
+                    <div class="item2 f-tar">
+                        <!-- 通过抽奖码免单不可用 -->
+                        <div class="coupon disabled" v-if='info.referalPrice-info.amountPrice>=0'>
+                            已免单不可用
+                        </div>
+                        <template v-else>
+                            <!-- 已经使用过优惠券，不能再用了 -->
+                            <div class="coupon disabled" v-if='info.couponPrice'>
+                                抵扣{{info.couponPrice}}元
+                            </div>
+                            <template v-else>
+                                <!-- 优惠券可用 -->
+                                <div class="coupon" v-if='info.coupons && info.coupons.length' @click='showCoupons'>
+                                    <template v-if='selectedCoupons'>
+                                        抵扣{{selectedCoupons.price}}元
+                                    </template>
+                                    <template v-else>
+                                        共{{info.coupons.length}}张可用
+                                    </template>
+                                </div>
+                                <div class="coupon disabled" v-else>暂无符合的优惠券可用</div>
+                            </template>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 抽奖 -->
+            <div class="m-box" v-if='parseInt(info.amountPrice) >= info.minRreferalOrderPrice'>
+                <!-- 未抽奖 -->
+                <div class="m-box__text lucky" v-if='!info.referalPrice'>
+                    <div class="detail black">润·教育支付立减活动，下一个免单的就是您！</div>
+                    <div class="m-box__flex">
+                        <input class="item code-input" type="number" placeholder="请输入机构推荐码" v-model='luckyCode'>
+                        <button class="item btn  btn_small btn_block" :disabled="disableLuckyButton" @click='goLucky' :class="{'btn_gray4': !luckyCode}">抽奖</button>
+                    </div>
+                </div>
+                <!-- 已抽奖 -->
+                <div class="m-box__flex" v-else>
+                    <div class="item2">
+                        <div class="name">使用推荐码</div>
+                    </div>
+                    <div class="item2 f-tar">
+                        <div class="detail highlight">
+                            立减{{luckyPrice}}元
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 价格 -->
+            <div class="m-box">
+                <!-- 价格 -->
+                <div class="m-box__flex">
+                    <div class="item2">
+                        <div class="name">价格</div>
+                    </div>
+                    <div class="item2 f-tar">
+                        <div>
+                            <span class="tip">￥</span><span class="gray">{{info.amountPrice}}</span>
+                        </div>
+                        <div class="tip" v-if='couponsPrice'>
+                            (优惠券 -￥{{couponsPrice}})
+                        </div>
+                        <div class="tip" v-if='luckyPrice'>
+                            (推荐码 -￥{{luckyPrice}})
+                        </div>
+                    </div>
+                </div>
+                <div class="m-box__flex">
+                    <div class="item2">
+                        <div class="name">应付款</div>
+                    </div>
+                    <div class="item2 f-tar">
+                        <div class="tip" v-if='price'>
+                            <span class="">￥</span><span class="price highlight">{{price}}</span>
+                        </div>
+                        <div class="tip" v-else>
+                            <span class="price highlight">免单</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 支付 -->
+            <template v-if='price'>
+                <div class="m-box">
+                    <div class="m-box__title">支付方式</div>
+                    <ui-payment :type.sync='thirdPayType'></ui-payment>
+                </div>
+                <div class="g-con-b">
+                    <button class="btn btn_big btn_block" @click="submit">去支付</button>
+                </div>
+            </template>
+            <!-- 免单 -->
+            <template v-else>
+                <div class="free-tip">是否使用此次免单报名课程</div>
+                <div class="g-con-b f-tac">
+                    <button class="btn btn_big btn_block" @click='submit'>确认</button>
+                </div>
+            </template>
+        </template>
+        <!-- 选择优惠券弹层 -->
+        <div class="m-coupon" v-if='isShowCoupons'>
+            <div class="m-coupon__content">
+                <div class="m-coupon__hd">
+                    共{{info.coupons.length}}张可用
+                    <i class="icon-wrong" @click='hideCoupons'></i>
+                </div>
+                <div class="m-coupon__bd">
+                    <div class="m-coupon__item" v-for='item in info.coupons' @click='selectCoupon(item)' :class='selectedCoupons==item?"z-selected":""'>
+                        <div class="infor">
+                            <div class="amount">￥{{item.price}}</div>
+                            <div class="limit" v-if='item.limitFull'>满{{item.limitFull}}可用</div>
+                        </div>
+                        <div class="detail">
+                            <div class="name">{{item.limitGroup}}</div>
+                            <div class="remark" >{{item.remark}}</div>
+                            <div class="deadline">使用期限:{{item.beginTime}}-{{item.endTime}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="unuse" @click='unselectCoupon'>不使用优惠券</button>
+                </div>
+            </div>
+        </div>
+        <!-- 抽奖结果 -->
+        <div class="m-draw-result" v-if='showLucky'>
+            <div class="m-draw-result__content">
+                <div class="text">
+                    <div>恭喜您获得</div>
+                    <div class="price">￥{{info.referalPrice}}</div>
+                </div>
+                <a class="sure" @click='luckyCode=""'></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <!-- 评分 -->
+        <div class="comment-infor" v-show='!isScoreLoading'>
+            <div class="total">
+                <span>课程评价<strong>({{score.count}}条)</strong></span>
+                <span>评分<strong>({{score.avgScore}}分)</strong></span>
+            </div>
+            <div class="scores">
+                <span>服务态度（{{score.serviceScore}}分)</span>
+                <span>教学环境（{{score.envScore}}分)</span>
+                <span>专业水平（{{score.profScore}}分)</span>
+                <span>课程内容（{{score.courseScore}}分)</span>
+            </div>
+        </div>
+        <!-- 评论列表 -->
+        <ui-list :is-last-page='isLastPage' :is-loading='isListLoading' :is-empty='isEmpty' @load-more='onLoadMore'>
+            <div class="comment-list" v-show='list.length'>
+                <div class="item" v-for='item in list'>
+                    <div class="user">
+                        <img :src="item.student.profileImg">
+                        <span class="name">{{item.student.nickName}}</span>
+                    </div>
+                    <div class="detail">
+                        <div class="content">{{item.content}}</div>
+                        <div class="tip">
+                            <span>{{item.createTime}}</span>
+                            <span class="f-fr">{{item.courseName}}</span>
+                        </div>
+                        <div class="images" v-if='item.img.length'>
+                            <img :src="n.uri" v-for='n in item.img'>
+                        </div>
+                        <div class="reply" v-if='item.reply'>{{item.reply}}</div>
+                    </div>
+                </div>
+            </div>
+        </ui-list>
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

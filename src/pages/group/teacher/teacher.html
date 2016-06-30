@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <template v-if="loading">
+            <ui-loading></ui-loading>
+        </template>
+        <template v-if='!isLoading && info'>
+            <div class="m-box">
+                <div class="m-box__flex">
+                    <img class="size1" :src="info.profileImg">
+                    <div class="item">
+                        <div class="name">{{info.name}}</div>
+                        <div class="tip highlight2">教龄{{info.teacherAge}}年</div>
+                    </div>
+                </div>
+                <div class="m-box__text course">
+                    教授科目：
+                    <span class="f-mr10" v-for='n in info.subjects'>{{n.name}}</span>
+                </div>
+                <div class="m-box__text">
+                    毕业院校：{{info.school}}
+                </div>
+            </div>
+            <div class="m-box">
+                <div class="m-box__title">个人简介</div>
+                <div class="m-box__text">{{{info.intro}}}</div>
+            </div>
+        </template>
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

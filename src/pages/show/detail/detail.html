@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap">
+    <ui-header :title='title'></ui-header>
+    <template v-if='!isLoading && info'>
+        <div class="show-detail">
+            <div class="video-con">
+                <div class="video">
+                    <!-- <video class="video-js vjs-default-skin" style='width: 10rem;height: 5.625rem;' v-video='info.uri'></video> -->
+                    <!-- <img src="http://7xs809.media1.z0.glb.clouddn.com/5438119171352858624" 
+                        style="width:10rem;height:5.625rem;position:absolute;top:0px;left:0px;"> -->
+                    
+                    <video width="10rem" height="5.625rem" controls="controls" 
+                           poster={{info.thumbnailUri}} >
+                        <source :src="info.uri" />
+                    </video>
+                    
+                </div>
+                <span class="count">
+                    <i class="icon-play"></i>
+                    {{info.playCount}}次播放
+                </span>
+                <span class="ranking" v-if="info.awarded">{{info.awardTime}}第{{info.prizeRank}}名</span>
+            </div>
+            <div class="m-box">
+                <div class="m-box__text">
+                    {{info.voteCount}}票<span class="tip f-mr10">(手机{{info.appVote}}</span><span class="tip">电视{{info.tvVote}})</span>
+                </div>
+            </div>
+            <!-- <div v-for='tt in tts'>{{tt}}</div> -->
+            <div class="g-con">
+                <button class="btn btn_block btn_big" @click="clickload()">
+                    <template v-if="info.awarded">打开润·教育APP参加润秀场</template>
+                    <template v-else>打开润·教育APP参与投票</template>
+                </button>
+            </div>
+            <div class="infor">
+                <div class="title">名称：{{info.title}}</div>
+                <div v-if="info.showId"><span class="name">编号：</span>{{info.showId}}</div>
+                <div v-if="info.createTime"><span class="name">发布时间：</span>{{info.createTime}}</div>
+                <div v-if="info.subjectName"><span class="name">分类：</span>{{info.subjectName}}</div>
+                <div v-if="info.player"><span class="name">表演者：</span>{{info.player}}</div>
+                <div v-if="info.age"><span class="name">年龄：</span>{{info.age}}</div>
+                <div v-if="info.constellation"><span class="name">星座：</span>{{info.constellation}}</div>
+                <div v-if="info.adviser"><span class="name">指导老师：</span>{{info.adviser}}</div>
+                <div v-if="info.producer"><span class="name">拍摄制作人：</span>{{info.producer}}</div>
+                <div v-if="info.shootAddress"><span class="name">拍摄地点：</span>{{info.shootAddress}}</div>
+                <div v-if="info.organName"><span class="name">选送单位：</span>{{info.organName}}</div>
+                <div v-if="info.intro"><span class="name">简介：</span>{{{info.intro}}}</div>
+            </div>
+        </div>
+    </template>
+    <ui-scroll-top></ui-scroll-top>
+    <ui-dialog :show='dialog'></ui-dialog>
+</body>
+
+</html>

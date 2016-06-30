@@ -1,0 +1,109 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+
+.comment-infor {
+	.px2rem(padding, 40, @spacing-vertical-base, @spacing-vertical-small);
+	color: @color-black;
+	.px2rem(margin-bottom, @spacing-vertical-base);
+    background-image: url('color_line.png');
+    background-repeat: repeat-x;
+    background-color: @color-white;
+    .total {
+		.px2rem(margin-bottom, @spacing-vertical-small);
+		strong {
+			font-weight: normal;
+			color: @color-success;
+		}
+		span + span {
+			.px2rem(margin-left, @spacing-vertical-large);
+		}
+	}
+	.scores {
+		span {
+			display: inline-block;
+			line-height: @line-height-base;
+			.px2rem(padding, 0, 20);
+			.px2rem(margin-bottom, @spacing-vertical-small);
+			.px2rem(margin-right, @spacing-vertical-small);
+			.px2px(font-size, @font-size-h5);
+			.px2rem(border-radius, @radius-small);
+			background-color: #ffedef;
+		}
+	}
+}
+.comment-list {
+	.item {
+		.px2rem(padding, 30);
+		background-color: @color-white;
+		border-bottom: 1px solid @color-gray4;
+
+		&:last-child {
+			border-bottom: 0 ;
+		}
+		.user {
+			.px2rem(margin-bottom, 16);
+			img {
+				display: inline-block;
+				.px2rem(width, 40);
+				.px2rem(height, 40);
+				.px2rem(border-radius, 20);
+				vertical-align: middle;
+			}
+			.name {
+				display: inline-block;
+				color: @color-black;
+				vertical-align: middle;
+			}
+		}
+		.detail {
+			.content {
+				line-height: @line-height-small;
+				.px2rem(margin-bottom, 16);
+			}
+			.tip {
+				.px2px(font-size, @font-size-h5);
+				color: @color-gray5;
+			}
+		}
+		.images {
+			.px2rem(margin-top, 20);
+			font-size: 0;
+
+			img {
+				display: inline-block;
+				.px2rem(width, 186);
+				.px2rem(height, 142);
+				vertical-align: top;
+				.px2rem(margin-bottom, 20);
+			}
+			img + img {
+				.px2rem(margin-left, 10);
+			}
+			img:nth-child(3n+1) {
+				margin-left: 0;
+			}
+		}
+		.reply {
+			position: relative;
+			.px2rem(margin-top, 20);
+			.px2rem(padding, 20);
+			line-height: @line-height-small;
+			color: @color-black;
+			background-color: @color-gray3;
+			&:before {
+				content: '';
+				position: absolute;
+				.px2rem(top, -12);
+				.px2rem(left, 40);
+				.px2rem(width, 24);
+				.px2rem(height, 24);
+				background-color: @color-gray3;
+				
+				transform: rotate(45deg);
+				transform-origin: center center;
+			}
+		}
+	}
+}
+	

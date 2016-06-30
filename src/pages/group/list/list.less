@@ -1,0 +1,43 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+.group-list {
+    .item {
+        display: block;
+        .px2rem(margin, 20);
+        .px2rem(border-radius, 12);
+        line-height: @line-height-small;
+        background-color: @color-white;
+        img {
+            .px2rem(width, 600);
+            .px2rem(height, 258);
+            .px2rem(border-top-left-radius, 12);
+            .px2rem(border-top-right-radius, 12);
+        }
+        .text {
+            width: 100%;
+            .px2rem(padding, 20);
+        }
+        .name {
+            .px2rem(margin-bottom, 8);
+            .px2px(font-size, 32);
+            color: @color-black;
+        }
+        .detail {
+            .px2rem(margin-bottom, 8);
+            .px2px(font-size, 24);
+            color: @color-gray5;
+        }
+        .tips {
+            .px2px(font-size, 24);
+            color: @color-gray5;
+            strong {
+                font-weight: normal;
+                color: @color-primary;
+            }
+            .icon-address {
+                .px2px(margin-right, 10);
+                .px2px(font-size, 32);
+            }
+        }
+    }
+}

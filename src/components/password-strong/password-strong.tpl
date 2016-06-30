@@ -1,0 +1,1 @@
+<span class="m-password-strong" :class='status' v-show='password'></span>

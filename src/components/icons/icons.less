@@ -1,0 +1,225 @@
+/**
+ * 图标
+ */
+
+@import "../ui/variable";
+@import "../ui/mixin";
+@font-face {
+    font-family: 'run';
+    src:    url('fonts/run.eot?wy20wr');
+    src:    url('fonts/run.eot?wy20wr#iefix') format('embedded-opentype'),
+        url('fonts/run.ttf?wy20wr') format('truetype'),
+        url('fonts/run.woff?wy20wr') format('woff'),
+        url('fonts/run.svg?wy20wr#run') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'run' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// i[class*="icon-"] {
+//     display: inline-block;
+//     vertical-align: middle;
+//     color: #b2b2b2;
+// }
+
+.icon-back:before,
+.icon-back2:before {
+    content: "\e939";
+}
+.icon-toggle:before {
+    content: "\e906";
+}
+.icon-tel:before {
+    content: "\e915";
+}
+.icon-collected:before,
+.icon-collected2:before,
+.icon-collected3:before {
+    content: "\e935";
+}
+.icon-collect:before,
+.icon-collect2:before,
+.icon-collect3:before {
+    content: "\e934";
+}
+.icon-share:before,
+.icon-share2:before {
+    content: "\e90e";
+}
+.icon-hearted:before {
+    content: "\e936";
+}
+.icon-heart:before {
+    content: "\e938";
+}
+.icon-phone:before {
+    content: "\e914";
+}
+.icon-lock:before {
+    content: "\e925";
+}
+.icon-code:before {
+    content: "\e900";
+}
+.icon-see:before {
+    content: "\e923";
+}
+.icon-nosee:before {
+    content: "\e924";
+}
+.icon-go:before {
+    content: "\e901";
+}
+.icon-call:before {
+    content: "\e903";
+}
+.icon-map:before {
+    content: "\e902";
+}
+.icon-address:before {
+    content: "\e904";
+}
+.icon-location:before {
+    content: "\e909";
+}
+.icon-clock:before {
+    content: "\e90a";
+}
+.icon-calendar:before {
+    content: "\e90b";
+}
+.icon-right:before {
+    content: "\e90c";
+}
+.icon-wrong:before {
+    content: "\e90d";
+}
+.icon-news:before {
+    content: "\e912";
+}
+.icon-arr-right:before {
+    content: "\e93c";
+}
+.icon-arr-up:before {
+    content: "\e945";
+}
+.icon-arr-down:before {
+    content: "\e946";
+}
+.icon-arraw-up:before {
+    content: "\e943";
+}
+.icon-arraw-down:before {
+    content: "\e944";
+}
+.icon-triangle_r:before {
+    content: "\e90f";
+}
+.icon-shield:before {
+    content: "\e907";
+}
+.icon-bookmark:before {
+    content: "\e908";
+}
+.icon-camera:before {
+    content: "\e905";
+}
+.icon-play:before {
+    content: "\e910";
+}
+.icon-close:before {
+    content: "\e951";
+}
+.icon-close2:before {
+    content: "\e952";
+}
+.icon-add:before {
+    content: "\e953";
+}
+.icon-del:before {
+    content: "\e954";
+}
+.icon-good:before {
+    content: "\e95d";
+}
+.icon-bad:before {
+    content: "\e95f";
+}
+.icon-crown:before {
+    content: "\e916";
+}
+.icon-triangle_d:before {
+    content: "\e917";
+}
+.icon-sort:before {
+    content: "\e918";
+}
+.icon-flag:before {
+    content: "\e919";
+}
+.icon-gift:before {
+    content: "\e91a";
+}
+.icon-fire:before {
+    content: "\e91b";
+}
+.icon-good2:before {
+    content: "\e91c";
+}
+.icon-success:before {
+    content: "\e91d";
+}
+.icon-warn:before {
+    content: "\e91e";
+}
+.icon-zfb:before {
+    content: "\e911";
+}
+.icon-wx:before {
+    content: "\e913";
+}
+
+
+// 联盟
+.icon-league {
+    display: inline-block;
+    .px2rem(width, 78);
+    .px2rem(height, 56);
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(images/1.png?__inline);
+}
+
+// runjiaoyu 
+.icon-run {
+    display: inline-block;
+    vertical-align: middle;
+    background-size: cover;
+    .px2rem(width, 199);
+    .px2rem(height, 199);
+    background-image: url('images/em.png?__inline');
+}
+
+// logo
+.icon-logo {
+    display: inline-block;
+    vertical-align: middle;
+    background-size: cover;
+    .px2px(width, 68);
+    .px2px(height, 68);
+    background-image: url('images/logo.png?__inline');
+}

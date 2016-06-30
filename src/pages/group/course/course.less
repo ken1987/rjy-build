@@ -1,0 +1,71 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.course-filter {
+	.px2rem(padding, @spacing-vertical-small, @spacing-vertical-base);
+	background-color: @color-white;
+	border-bottom: 1px solid @color-gray4;
+
+	span {
+		display: inline-block;
+		.px2rem(padding, 0, @spacing-vertical-base);
+		.px2rem(margin-bottom, @spacing-vertical-small / 2);
+		border: 1px solid @color-white;
+		.px2rem(line-height, 48);
+		.px2rem(border-radius, 24);
+		color: @color-black;
+		&.z-active {
+			color: @color-primary;
+			border-color: @color-primary;
+		}
+	}
+}
+.courses {
+	background-color: @color-white;
+	
+	.item {
+		border-bottom: 1px solid @color-gray4;
+	}
+	.infor {
+		display: flex;
+		align-items: center;
+		.px2rem(padding, @spacing-vertical-small, @spacing-vertical-base);
+
+		img {
+			display: block;
+			flex-shrink: 0;
+			.px2rem(width, 146);
+			.px2rem(height, 146);
+		}
+		// 文字部分 
+		.text {
+			flex-grow: 1;
+			width: 100%;
+			.px2rem(margin-left, @spacing-vertical-small);
+			.name {
+				.px2rem(margin-bottom, 8);
+				.px2px(font-size, @font-size-h2);
+				color: @color-black;
+				.text-overflow();
+			}
+			.price {
+				.px2px(font-size, @font-size-h5);
+				color: @color-gray5;
+				.number {
+					.px2px(font-size, 40);
+					color: @color-success;
+				}
+			}
+		}
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+	.date {
+		.px2rem(padding, @spacing-vertical-small, @spacing-vertical-small, @spacing-vertical-small, 0,);
+		.px2rem(padding-bottom, @spacing-vertical-small);
+		.px2rem(margin-left, 186);
+		.px2px(font-size, @font-size-h5);
+		border-top: 1px solid @color-gray4;
+	}
+}

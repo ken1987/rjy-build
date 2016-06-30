@@ -1,0 +1,25 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.p-search {
+    .search__title {
+        .px2px(font-size, 30);
+        .px2rem(padding-left, @spacing-vertical-base);
+        .px2rem(margin-top, @spacing-vertical-base);
+        color: @color-black;
+    }
+    .search__tip {
+        .px2rem(margin-top, 100);
+        .px2rem(margin-bottom, 140);
+        text-align: center;
+        .px2px(font-size, 30);
+        .icon-warn {
+            .px2px(font-size, 120);
+            color: @color-success;
+        }
+        .icon-success {
+            .px2px(font-size, 120);
+            color: @color-primary;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <ui-list :is-last-page='isLastPage' :is-loading='isLoading' :is-empty='isEmpty' @load-more='onLoadMore'>
+            <div class="honor-list f-clearfix" v-if='!isEmpty'>
+                <a class="item" v-for='item in items' :href='"honor.html?id="+item.id'>
+                    <img :src="item.converImg">
+                    <div class="title">{{item.title}}</div>
+                </a>
+            </div>
+        </ui-list>
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

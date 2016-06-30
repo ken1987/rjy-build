@@ -1,0 +1,302 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+//通用面板
+@panelYSpace:20px;//垂直方向留白
+@panelXSpace:20px;//水平方向留白
+.m-panel{
+    .px2rem(margin-top, @panelYSpace);
+    background: white;
+    border-top: 1px solid @color-gray3;
+    border-bottom: 1px solid @color-gray3;
+    
+    &:first-child {
+        margin-top: 0;
+    }
+}
+.m-panel__hd{
+    position: relative;
+    overflow: hidden;
+    display:flex;
+    align-items: center;
+    .px2rem(padding, @panelXSpace);
+    
+    &:after {
+        content: " ";
+        position: absolute;
+        .px2rem(left, @panelXSpace);
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid @color-gray4;
+    }
+}
+
+.m-panel__hd__title{
+    flex-grow: 1;
+    .px2px(font-size, 32);
+    color:@color-black;
+    
+    &:before{
+        .px2rem(margin-right, 10);
+    }
+}
+.m-panel__hd__more{
+    .px2px(font-size, @font-size-h5);
+    color: @color-gray5;
+    &:after{
+        font-family: 'run' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        content:'\e93c';
+        .px2rem(margin-left, @spacing-vertical-small);
+    }
+}
+
+//带标签的图片
+@tagImgHeight:36px;
+.m-tag-img{
+    position: relative;
+    background:@color-gray2;
+    img {
+        width:100%;
+        height:100%;
+    }
+    
+    &:after{
+        content:'';
+        position: absolute;
+        bottom:0;
+        left:0;
+        width:100%;
+        .px2rem(height, 80);
+        background: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, 0.08) 21%, rgba(51, 51, 51, 0.1) 25%, rgba(51, 51, 51, 0.15) 33%, rgba(51, 51, 51, 0.18) 37%, rgba(42, 42, 42, 0.23) 45%, rgba(38, 38, 38, 0.25) 49%, rgba(3, 3, 3, 0.3) 60%, rgba(0, 0, 0, 0.31) 61%, rgba(0, 0, 0, 0.65) 100%);
+    }
+}
+.m-tag-img__tag{
+    position: absolute;
+    bottom:0;
+    right:0;
+    z-index: 1;
+    .px2rem(margin-top, -@tagImgHeight);
+    .px2rem(height, @tagImgHeight);
+    .px2rem(line-height, @tagImgHeight);
+    .px2rem(padding-left, 16);
+    .px2rem(padding-right, 16);
+    .px2px(font-size,24);
+    color:white;
+}
+
+//附近机构
+@groupXSpace:@panelXSpace / 2;
+.near-groups{
+    .px2rem(padding, @groupXSpace);
+}
+.near-group {
+    float: left;
+    width: 50%;
+    .px2rem(padding, @groupXSpace);
+    
+    .m-tag-img {
+        .px2rem(height, 130);
+    }
+    
+    .title {
+        line-height: @line-height-base;
+        .text-overflow();
+    }
+}
+
+
+
+// 润头条
+.toplines{
+    display: flex;
+    align-items: center;
+    &:after {
+        left:0;
+    }
+}
+.toplines-title{
+    background:url(topline.png?__inline);
+    background-size:cover;
+    .px2rem(width,122);
+    .px2rem(height,44);
+    font-size:0;
+    line-height: 0;
+    flex-shrink:0;
+}
+
+// .toplines-bd{
+//     flex-grow: 1;
+//     border-left:1px solid @color-gray4;
+//     .px2rem(margin-left, 20);
+//     .px2rem(padding-left, 20); 
+// }
+
+// .m-toplines{
+//     overflow: hidden;
+//     .px2rem(height, 48);
+//     .px2rem(line-height, 48);
+// }
+// .m-toplines-item{
+//     display: block;
+//     overflow: hidden;
+//     .px2rem(line-height, 48);
+//     .px2px(font-size, 24);
+//     height: 100%;
+// }
+
+// 科目分类  
+.categorys {
+    .px2rem(padding-top, @spacing-vertical-base);
+}
+.category {
+    float: left;
+    width: 25%;
+    text-align: center;
+    .px2rem(margin-bottom, @spacing-vertical-base);
+    img {
+        .px2rem(width, 88);
+        .px2rem(height, 88);
+    }
+    .title {
+        .px2px(font-size, @font-size-h5);
+        color: @color-black;
+    }
+}
+
+// 专题活动 
+.activity{
+    display: block;
+    .px2rem(height, 160);
+    .px2rem(margin-bottom, @panelYSpace);
+    .px2rem(margin-left, @panelXSpace);
+    .px2rem(margin-right, @panelXSpace);
+    
+    &:first-child{
+        .px2rem(margin-top, @panelYSpace);
+    }
+    
+    img{
+        width:100%;
+        height:100%;
+    }
+}
+
+// 推荐机构
+.groups {
+    .px2rem(padding, @groupXSpace);
+}
+.group {
+    float: left;
+    width: 50%;
+    .px2rem(padding, @groupXSpace);
+    display: flex;
+    align-items: center;
+    img {
+        display: block;
+        .px2rem(width, 90); 
+        .px2rem(height, 90);
+        border-radius: 50%;
+    }
+}
+.group-content {
+    .px2rem(margin-left, 10);
+    flex-grow:1;
+}
+.group-title{
+    font-size:14px;
+    color: @color-black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width:7em;
+}
+.group-score{
+    font-size:12px;
+    color:@color-gray5;
+}
+
+//课程推荐
+.course{
+    display: flex;
+    .px2rem(padding, @panelXSpace); 
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    
+    .m-tag-img{
+        flex-shrink:0;
+        .px2rem(width,140);
+        .px2rem(height,140);
+        .px2rem(margin-right,20);
+    }
+    
+    &:after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid @color-gray4;
+        .px2rem(left, @panelXSpace);
+    }
+}
+
+.course__info{
+    flex-grow: 1;
+    overflow: hidden;
+}
+.course__name{
+    .px2rem(margin-bottom, 6);
+    .px2px(font-size, @font-size-h2);
+    color: @color-black;
+    .text-overflow();
+}
+.course__price{
+    .px2rem(margin-bottom, 6);
+}
+.course__price__new {
+    display: inline-block;
+    color: @color-success;
+    .px2px(font-size, 28);
+    span{
+        .px2px(font-size, 36);
+    }
+}
+.course__price__old {
+    display: inline-block;
+    .px2px(font-size, 24);
+    color: @color-gray5;
+    text-decoration: line-through;
+}
+.course__group{
+    .text-overflow();
+    color: @color-gray5;
+}
+
+
+
+// 小图标颜色
+.icon-flag,
+.icon-fire {
+    vertical-align: baseline;
+    &:before {
+        color: @color-primary;
+    }
+}
+.icon-good2 {
+    vertical-align: baseline;
+    &:before {
+        color: #26c8f0;
+    }
+}
+.icon-hearted {
+    vertical-align: baseline;
+    &:before {
+        color: #ff7e00;
+    }
+}

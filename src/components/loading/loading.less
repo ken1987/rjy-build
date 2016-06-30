@@ -1,0 +1,95 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.m-loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.m-loading__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    font-size: 20px;
+    color: #fff;
+    // border-radius: 50%;
+    background-color: #ccc;
+    overflow: hidden; 
+
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg); 
+}
+.m-loading .number {
+    position: absolute;
+    width: 60px;
+    margin-left: 20px;
+    text-align: center;
+    z-index: 1;
+}
+.m-loading .logo {
+    position: absolute;
+    width: 60px;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
+    z-index: 1;
+}
+.m-loading .wave {
+    position: absolute;
+    left: -260px;
+    top: 95px;
+    width: 360px;
+    height: 120px;
+
+    -webkit-animation: wave 2s linear infinite;
+    -o-animation: wave 2s linear infinite;
+    animation: wave 2s linear infinite;
+}
+@-webkit-keyframes wave {
+    0% {
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(180px);
+    }
+}
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(180px);
+    }
+}
+.m-loading .loading {
+    -webkit-animation: loading 8s linear infinite;
+    -o-animation: loading 8s linear infinite;
+    animation: loading 8s linear infinite;
+}
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(-100px);
+    }
+}
+@keyframes loading {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}

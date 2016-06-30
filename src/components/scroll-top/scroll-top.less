@@ -1,0 +1,18 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    .px2px(width, 100);
+    .px2px(height, 100);
+    border: 1px solid #d6d6d6;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    .icon-arraw-up {
+        display: block;
+        .px2px(margin-top, 8);
+    }
+}

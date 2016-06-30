@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap">
+    <ui-header title='退课理由'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <div class="reason-list">
+        <div class="item" v-for='item in items'>
+            <label class="u-input-radio icon-right" :class='{"z-checked":cause==item}'>
+                <input type="radio" v-model='cause' :value='item'> {{item}}
+            </label>
+        </div>
+    </div>
+    <div class="g-con-b">
+        <button class="btn btn_big btn_block" @click='refund'>提交</button>
+    </div>
+    <ui-dialog :show='dialog'></ui-dialog>
+</body>
+
+</html>

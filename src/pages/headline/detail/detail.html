@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div class="p-headline" id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <template v-if='!isLoading'>
+            
+            <div class="main">
+                <div class="title">
+                    {{info.title}}
+                </div>
+                <div class="time">
+                    {{info.updateTime}}
+                </div>
+                <div class="detail">
+                    {{{info.content}}}
+                </div>
+            </div>
+
+        </template>
+        
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+<img class='u-imgcode' :src="src" @click='getImgCode'>

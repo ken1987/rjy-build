@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <p class="" v-if='isInit'><ui-loading></ui-loading></p>
+        <p v-if='!isInit && !info'>没有找到相关课程!</p>
+        <template v-if='!isInit && info'>
+            <app-details v-if='step==1' :info='info' :id='id' @oncreated='oncreated'></app-details>
+            <app-enroll v-if='step==2' :info='info' @onenroll='onenroll'></app-enroll>
+        </template>
+    </div>
+</body>
+
+</html>

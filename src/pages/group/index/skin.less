@@ -1,0 +1,832 @@
+@import "components/ui/variable";
+@import "components/ui/mixin";
+
+// 头部背景
+.style1 {
+    .group__hd {
+        background: url(images/style1.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style2 {
+    .group__hd {
+        background: url(images/style2.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style3 {
+    .group__hd {
+        background: url(images/style3.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style4 {
+    .group__hd {
+        background: url(images/style4.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style5 {
+    .group__hd {
+        background: url(images/style5.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style6 {
+    .group__hd {
+        background: url(images/style6.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style7 {
+    .group__hd {
+        background: url(images/style7.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style8 {
+    .group__hd {
+        background: url(images/style8.png) no-repeat;
+        background-size: cover;
+    }
+}
+.style9 {
+    .group__hd {
+        background: url(images/style9.png) no-repeat;
+        background-size: cover;
+    }
+}
+// 主题1
+.layout1 {
+    .nav {
+        a {
+            position: relative;
+            float: left;
+            .px2rem(margin-bottom, 10);
+            .px2rem(padding, 10);
+            background-color: @color-gray4;
+        }
+        a:nth-child(2n+1){
+            .px2rem(margin-right, 10);
+        }
+        .about {
+            .px2rem(width, 200); 
+            .px2rem(height, 176);
+            background: url('images/11-1.png');
+            background-size: cover;
+        }
+        .course {
+            .px2rem(width, 410);
+            .px2rem(height, 176);
+            text-align: right;
+            background: url('images/11-2.png');
+            background-size: cover;
+        }
+        .comment {
+            .px2rem(width, 305);
+            .px2rem(height, 200);
+            background: url('images/11-3.png');
+            background-size: cover;
+            span {
+                position: absolute;
+                .px2rem(top, 0);
+                .px2rem(left, 150);
+                .px2rem(line-height, 200);
+            }
+        }
+        .activity {
+            .px2rem(width, 305);
+            .px2rem(height, 200);
+            background-image: url('images/11-4.png');
+            background-size: cover;
+            span {
+                position: absolute;
+                .px2rem(bottom, 10);
+                .px2rem(right, 10);
+            }
+        }
+        .wall {
+            .px2rem(width, 305);
+            .px2rem(height, 200);
+            background: url('images/11-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            .px2rem(width, 305);
+            .px2rem(height, 200);
+            background: url('images/11-6.png');
+            background-size: cover;
+        }
+        .phone {
+            .px2rem(width, 305);
+            .px2rem(height, 140);
+            background: url('images/11-7.png');
+            background-size: cover;
+        }
+        .address {
+            .px2rem(width, 305);
+            .px2rem(height, 140);
+            background-image: url('images/11-8.png');
+            background-size: cover;
+            font-size: 0;
+            &:before {
+                content: '';
+                display: inline-block;
+                .px2rem(width, 26);
+                .px2rem(height, 120);
+                vertical-align: middle;
+                background: url('images/address.png') no-repeat;
+                .px2rem(background-size, 26, 30);
+                background-position: center center;
+            }
+            span {
+                display: inline-block;
+                .px2rem(width, 245);
+                .px2rem(max-height, 120);
+                .px2rem(margin-left, 10);
+                .px2px(font-size, @font-size-h5);
+                vertical-align: middle;
+                overflow: hidden;
+            }
+        }
+    }
+}
+.layout1.style1 {
+    .about {
+        background-color: #9b5ab4;
+    }
+    .course {
+        background-color: #a42665;
+    }
+    .comment {
+        background-color: #f0be1f;
+    }
+    .activity {
+        background-color: #e77d25;
+    }
+    .wall {
+        background-color: #be392a;
+    }
+    .teacher {
+        background-color: #e64d3d;
+    }
+    .phone {
+        background-color: #9c59b6;
+    }
+    .address {
+        background-color: #9c59b6;
+    }
+}
+.layout1.style2 {
+    .about {
+        background-color: #464883;
+    }
+    .course {
+        background-color: #865672;
+    }
+    .comment {
+        background-color: #e2403f;
+    }
+    .activity {
+        background-color: #5f3d59;
+    }
+    .wall {
+        background-color: #e5b75c;
+    }
+    .teacher {
+        background-color: #87ac78;
+    }
+    .phone {
+        background-color: #cb916a;
+    }
+    .address {
+        background-color: #865672;
+    }
+}
+.layout1.style3 {
+    .about {
+        background: url('images/13-1.png') no-repeat;
+        background-size: cover;
+        background-color: #7969ff;
+    }
+    .course {
+        background: url('images/13-2.png') no-repeat;
+        background-size: cover;
+        background-color: #48beb3;
+    }
+    .comment {
+        background: url('images/13-3.png') no-repeat;
+        background-size: cover;
+        background-color: #ff4b56;
+    }
+    .activity {
+        background-color: #26b2e6;
+    }
+    .wall {
+        background: url('images/13-5.png') no-repeat;
+        background-size: cover;
+        background-color: #feb403;
+    }
+    .teacher {
+        background: url('images/13-6.png') no-repeat;
+        background-size: cover;
+        background-color: #42d15d;
+    }
+    .phone {
+        background: url('images/13-7.png') no-repeat;
+        background-size: cover;
+        background-color: #fe6850;
+    }
+    .address {
+        background-color: #877af4;
+    }
+}
+.layout1.style4 {
+    .about {
+        background-color: #adca24;
+    }
+    .course {
+        background-color: #8595d3;
+    }
+    .comment {
+        background-color: #f8bd3d;
+    }
+    .activity {
+        background-color: #f35937;
+    }
+    .wall {
+        background-color: #4a943d;
+    }
+    .teacher {
+        background-color: #1ab083;
+    }
+    .phone {
+        background-color: #e8a850;
+    }
+    .address {
+        background-color: #8595d3;
+    }
+}
+.layout1.style5 {
+    .about {
+        background-color: #2f043c;
+    }
+    .course {
+        background-color: #1b8672;
+    }
+    .comment {
+        background-color: #871c52;
+    }
+    .activity {
+        background-color: #311867;
+    }
+    .wall {
+        background-color: #673540;
+    }
+    .teacher {
+        background-color: #303753;
+    }
+    .phone {
+        background-color: #265fae;
+    }
+    .address {
+        background-color: #1b8672;
+    }
+}
+.layout1.style6 {
+    .about {
+        background: url('images/16-1.png') no-repeat;
+        background-size: cover;
+    }
+    .course {
+        background: url('images/16-2.png') no-repeat;
+        background-size: cover;
+    }
+    .comment {
+        background: url('images/16-3.png') no-repeat;
+        background-size: cover;
+    }
+    .activity {
+        background-color: #ed9d5d;
+    }
+    .wall {
+        background: url('images/16-5.png') no-repeat;
+        background-size: cover;
+    }
+    .teacher {
+        background: url('images/16-6.png') no-repeat;
+        background-size: cover;
+    }
+    .phone {
+        background: url('images/16-7.png') no-repeat;
+        .px2rem(background-size, 305, 140);
+    }
+    .address {
+        background: url('images/16-8.png') no-repeat;
+        background-size: cover;
+    }
+}
+.layout1.style7 {
+    .score {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .about {
+        background: url('images/13-1.png') no-repeat;
+        background-size: cover;
+        background-color: #f4aa31;
+    }
+    .course {
+        background: url('images/13-2.png') no-repeat;
+        background-size: cover;
+        background-color: #3c82c2;
+    }
+    .comment {
+        background: url('images/13-3.png') no-repeat;
+        background-size: cover;
+        background-color: #de564a;
+    }
+    .activity {
+        background-color: #33ac87;
+    }
+    .wall {
+        background: url('images/13-5.png') no-repeat;
+        background-size: cover;
+        background-color: #754394;
+    }
+    .teacher {
+        background: url('images/13-6.png') no-repeat;
+        background-size: cover;
+        background-color: #d65635;
+    }
+    .phone {
+        background: url('images/13-7.png') no-repeat;
+        background-size: cover;
+        background-color: #34a343;
+    }
+    .address {
+        background-color: #f4aa31;
+    }
+}
+.layout1.style8 {
+    .about {
+        background: url('images/18-1.png') no-repeat;
+        background-size: cover;
+    }
+    .course {
+        background: url('images/18-2.png') no-repeat;
+        background-size: cover;
+    }
+    .comment {
+        background: url('images/18-3.png') no-repeat;
+        background-size: cover;
+    }
+    .activity {
+        background: url('images/18-4.png') no-repeat;
+        background-size: cover;
+    }
+    .wall {
+        background: url('images/18-5.png') no-repeat;
+        background-size: cover;
+    }
+    .teacher {
+        background: url('images/18-6.png') no-repeat;
+        background-size: cover;
+    }
+    .phone {
+        background: url('images/18-7.png') no-repeat;
+        background-size: cover;
+    }
+    .address {
+        background-color: #ec7c21;
+    }
+}
+.layout1.style9 {
+    .about {
+        background: url('images/19-1.png') no-repeat;
+        background-size: cover;
+    }
+    .course {
+        background: url('images/19-2.png') no-repeat;
+        background-size: cover;
+    }
+    .comment {
+        background: url('images/19-3.png') no-repeat;
+        background-size: cover;
+    }
+    .activity {
+        background: url('images/19-4.png') no-repeat;
+        background-size: cover;
+    }
+    .wall {
+        background: url('images/19-5.png') no-repeat;
+        background-size: cover;
+    }
+    .teacher {
+        background: url('images/19-6.png') no-repeat;
+        background-size: cover;
+    }
+    .phone {
+        background: url('images/19-7.png') no-repeat;
+        background-size: cover;
+    }
+    .address {
+        background-image: none;
+        background-color: #57afe1;
+    }
+} 
+// 主题2
+.layout2 {
+    .nav { 
+        position: relative;
+        // .px2rem(height, 750);
+        // .px2rem(padding, @spacing-vertical-small, 10);
+        a {
+            .px2rem(width, 239); 
+            .px2rem(height, 194);
+            span {
+                display: none;
+            }
+        }
+        .about {
+            position: absolute;
+            .px2rem(top, 120); 
+            .px2rem(left, 0);
+        }
+        .course {
+            position: absolute;
+            .px2rem(top, 20); 
+            .px2rem(left, 192);
+        }
+        .comment {
+            position: absolute;
+            .px2rem(top, 326); 
+            .px2rem(left, 0);
+        }
+        .activity {
+            position: absolute;
+            .px2rem(top, 120); 
+            .px2rem(right, 0);
+        }
+        .wall {
+            position: absolute;
+            .px2rem(top, 432); 
+            .px2rem(left, 192);
+        }
+        .teacher {
+            position: absolute;
+            .px2rem(top, 326); 
+            .px2rem(right, 0);
+        }
+        .phone {
+            position: absolute;
+            .px2rem(top, 226); 
+            .px2rem(left, 192);
+        }
+        .address {
+            display: flex;
+		    align-items: center;
+            .px2rem(width, 620);
+            .px2rem(height, 88);
+            .px2rem(margin-top, 640);
+            .px2rem(margin-bottom, 10);
+            .px2rem(padding, 0, @spacing-vertical-small);
+            background-color: rgba(0, 0, 0, 0.2);
+            .px2rem(border-radius, 8);
+            span {
+                display: block;
+                flex-grow: 1;
+                width: 100%;
+                .px2rem(margin-right, 10);
+                .text-overflow();
+            }
+            &:before {
+                content: '';
+                display: block;
+                .px2rem(width, 26);
+                .px2rem(height, 32);
+                .px2rem(margin-right, @spacing-vertical-small);
+                background: url('images/address.png') no-repeat;
+                background-size: cover;
+            }
+            &:after {
+                content: '';
+                display: block;
+                .px2rem(width, 20);
+                .px2rem(height, 20);
+                .px2rem(margin-left, @spacing-vertical-small);
+                border-right: 1px solid @color-white;
+                border-top: 1px solid @color-white;
+                
+				transform: rotate(45deg);
+				transform-origin: center center;
+            }
+        }
+    }
+}
+// 主题2第一种风格
+.layout2.style1 {
+    background: url(images/layout2/bg1.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/21-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/21-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/21-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/21-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/21-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/21-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/21-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style2 {
+    background: url(images/layout2/bg2.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/22-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/22-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/22-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/22-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/22-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/22-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/22-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style3 {
+    background: url(images/layout2/bg3.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/23-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/23-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/23-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/23-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/23-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/23-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/23-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style4 {
+    background: url(images/layout2/bg4.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/24-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/24-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/24-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/24-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/24-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/24-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/24-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style5 {
+    background: url(images/layout2/bg5.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/25-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/25-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/25-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/25-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/25-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/25-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/25-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style6 {
+    background: url(images/layout2/bg6.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/26-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/26-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/26-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/26-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/26-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/26-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/26-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style7 {
+    background: url(images/layout2/bg7.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/27-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/27-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/27-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/27-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/27-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/27-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/27-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style8 {
+    background: url(images/layout2/bg8.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/28-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/28-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/28-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/28-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/28-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/28-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/28-7.png');
+            background-size: cover;
+        }
+}
+.layout2.style9 {
+    background: url(images/layout2/bg9.png) no-repeat;
+    .px2rem(background-position, 0, 390);
+    background-size: cover;
+
+    .about {
+            background: url('images/layout2/29-1.png');
+            background-size: cover;
+        }
+        .course {
+            background: url('images/layout2/29-2.png');
+            background-size: cover;
+        }
+        .comment {
+            background: url('images/layout2/29-3.png');
+            background-size: cover;
+        }
+        .activity {
+            background: url('images/layout2/29-4.png');
+            background-size: cover;
+        }
+        .wall {
+            background: url('images/layout2/29-5.png');
+            background-size: cover;
+        }
+        .teacher {
+            background: url('images/layout2/29-6.png');
+            background-size: cover;
+        }
+        .phone {
+            background: url('images/layout2/29-7.png');
+            background-size: cover;
+        }
+}

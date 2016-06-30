@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+        <ui-header :title='title'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+        <template v-if='!isLoading'>
+            
+            <template v-if="info.pics[0]">
+                <ui-banner :items='info.pics'></ui-banner>
+            </template>
+
+            <template v-else>
+                <div class="m-banner">
+                    <img src="/components/default/jigoumoren_banner.png" height="100%" width="100%">
+                </div>
+            </template>
+
+            <div class="m-box">
+                <div class="m-box__text">
+                    <div class="name">{{info.groupName}}</div>
+                    <div class="detail-small">{{info.tag}}</div>
+                    <div class="tip">综合评分
+                    <span class="highlight">{{info.groupScore}}</span>
+                    </div>
+                </div>
+                <a class="m-box__flex" :href="info.mapUrl">
+                    <i class="icon-map"></i>
+                    <div class="item">
+                        <div class="name">{{info.address}}</div>
+                        {{info.addressDetail}}
+                    </div>
+                    <i class="icon-arr-right"></i>
+                </a>
+                <a class="m-box__flex" :href='"tel:"+info.telephone'>
+                    <i class="icon-call"></i>
+                    <div class="item">{{info.telephone}}</div>
+                    <i class="icon-arr-right"></i>
+                </a>
+            </div>
+            <div class="m-box" v-show='info.introduction'>
+                <div class="m-box__text">{{{info.introduction}}}</div>
+            </div>
+        </template>
+
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

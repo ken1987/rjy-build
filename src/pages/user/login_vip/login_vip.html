@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+<body>
+    <div id="wrap" class="login_vip">
+        <!-- 头部 -->
+        <ui-header :title='title'></ui-header>
+        <div class="vip-title">润教育VIP商户登录</div>
+        <!-- 登录 -->
+        <validator name="validation">
+            <div class='m-form'>
+                <div class="m-form__item">
+                    <i class="icon-phone"></i>
+                    <input 
+                        class="text-input" 
+                        type="text" 
+                        placeholder="登录账号" 
+                        v-model="mobile"
+                        v-validate:mobile="{required:true}"
+                    >
+                </div>
+                <div class="m-form__item" v-show='!loginType'>
+                    <i class="icon-lock"></i>
+                    <input 
+                        class="text-input" 
+                        placeholder="密码" 
+                        :type="showPassword?'text':'password'" 
+                        v-model="password"
+                        v-validate:password="{required:true,minlength:6}">
+                    <i :class="showPassword?'icon-see':'icon-nosee'" @click='togglePassword'> </i>
+                </div> 
+                <div class="m-form__item" v-show='loginType'>
+                    <i class="icon-code"></i>
+                    <input 
+                        class="text-input" 
+                        type="text" 
+                        placeholder="验证码" 
+                        maxlength="4" 
+                        v-model="code"
+                        v-validate:code="{required:true,minlength:4,maxlength:4}">
+                    <ui-button-code
+                        size='small' 
+                        :time.sync='time'
+                        @click="getCodeBySMS"></ui-button-code>
+                </div>
+            </div>
+        </validator>
+        
+        <div class="g-con">
+            <ui-button type='primary' size='big' block='true' @click="login">
+                {{isLogining?'正在登录...':'登录'}}
+            </ui-button>
+        </div>
+
+        <div style="position:relative;bottom:-200px;height:55px;width: 9rem;">
+            <div class="tip" style="position:absolute;width:9rem;">
+                如遗忘密码或账号请联系客服：<a href="tel:4006-822-188" class="tell">4006-822-188</a>
+                <div class="time">服务时间：周一至周五(9:00-20:00)</div>
+            </div>
+        </div>  
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap" class="p-detail">
+    <ui-header :title='info.name'>
+    </ui-header>
+    <div class="card" :style="{ background: 'url(' + info.background + ')' , backgroundSize: info.bgcovor }">
+        <div class="flag">
+            <!-- 润教育VIP卡 -->
+        </div>
+        <img class="logo" :src="info.logo" alt="">
+        <div class="infor">
+            <div class="name">{{info.name}}</div>
+            <div class="discount">{{info.discount}}优惠</div>
+            <div class="time">有效期至:{{info.endTime}}</div>
+        </div>
+    </div>
+    <div class="m-box">
+        <div class="m-box__text">
+            <div class="name">使用说明：</div>
+            <div>
+                {{info.remark}}
+            </div>
+        </div>
+    </div>
+    <div class="m-box">
+        <a class="m-box__flex" href="tel:0755-89592001">
+            <i class="icon-call"></i>
+            <div class="item">
+                <div class="black">如需更改VIP卡信息请联系商务</div>
+                <div class="highlight3">
+                    0755-89592001 (分机号：8044)
+                </div>
+            </div>
+        </a>
+        <div class="m-box__flex">
+            <i class="icon-clock"></i>
+            <div class="item">
+                办公时间：周一至周五 9:00-18:00
+            </div>
+        </div>
+    </div>
+
+    <div class="m-box">
+        <div class="m-box__title">场馆信息</div>
+        <div class="m-box__flex">
+            <img class="size1" :src="info.logo">
+            <div class="item" style="position:relative">
+                <div class="name">{{info.name}}</div>
+                <a class="highlight3">更改logo</a>
+
+                <input type="file" style="width:1.875rem;height:0.875rem;opacity:0;position:absolute;left:0px;"   
+                @change='uploadImgs($event)'lazy id="uploadImg" name="myfile" value=""/>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="m-box">
+        <div class="m-box__flex">
+            <i class="icon-map"></i>
+            <div class="item">
+                <div class="name">{{info.name}}</div>
+                <div class="highlight3">{{info.address}}</div>
+            </div>
+            <a class="highlight3" @click="editInfo(2)">编辑</a>
+        </div>
+        <div class="m-box__flex">
+            <i class="icon-clock"></i>
+            <div class="item">
+                办公时间：{{info.hours}}
+            </div>
+            <a class="highlight3" @click="editInfo(3)">编辑</a>
+        </div>
+        <div class="m-box__flex">
+            <i class="icon-call"></i>
+            <div class="item">
+                电话：{{info.mobile}}
+            </div>
+            <a class="highlight3" @click="editInfo(4)">编辑</a>
+        </div>
+    </div>
+
+    <div class="m-box">
+        <div class="m-box__flex">
+            <div class="item">场馆简介</div>
+            <a class="highlight3" @click="editInfo(5)">编辑</a>
+        </div>
+        <div class="m-box__text">
+            {{info.intro}}
+        </div>
+    </div>
+
+<validator name="validation">
+    <div class='m-dialog' v-if="show.show">
+        <div class="m-dialog__inner">
+            <div class="m-dialog__hd">
+                {{show.title}}
+            </div>
+
+            <div class="m-dialog__bd"> 
+                <textarea class="t-textarea" 
+                v-model="show.context"
+                v-validate:info="{required : true}"
+                >{{show.aretext}}</textarea>
+                <span class="error" v-if="$validation.info.required">(必填)</span>
+            </div>
+
+            <div class="m-dialog__ft">
+                <button class="m-dialog__btn" @click="confirm">{{show.confirmText||'确定'}}</button>
+                <button  class="m-dialog__btn" 
+                    v-if='show.type =="confirm"'
+                    type="gray"  
+                    @click="cancel"
+                >{{show.cancelText||'取消'}}</button>
+            </div>
+        </div>
+    </div>
+</validator>   
+
+</body>
+
+</html>

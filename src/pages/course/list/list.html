@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap" class="p-course-list">
+        <ui-banner-download></ui-banner-download>
+        <ui-header title='课程列表'>
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+
+        <ui-select-menu :items='menus' :active.sync='open' @change='change' @search="search">
+        </ui-select-menu>
+        
+        <ui-list 
+            :is-last-page='isLastPage' 
+            :is-loading='isLoading' 
+            :is-empty='isEmpty' 
+            :is-disable='open!=-1'
+            @load-more='load'
+        >
+            
+<!--             <div class="group-con">
+                <a class="item" :href='"index.html?id="+item.id'>
+                    <div class="img-con">
+                        <img :src="item.group.logo" @error='getDefaultImg(item)'>
+                        <div class="count" v-if="item.classNum">{{item.classNum}}节课</div>
+                    </div>
+                    <div class="infor">
+                        <div class="name">{{item.name}}</div>
+                        <div class="price">
+                            ￥<strong class="num">{{item.price}}</strong>
+                            <del class="original">￥{{item.orginPrice}}</del>
+                        </div>
+                        <div class="f-fr f-ml10">
+                            {{item.group.regionName}} 
+                            <span v-if='item.group.dist'>{{item.group.dist}}km</span>
+                        </div>
+                        <div class="group">{{item.group.groupName}}</div>
+                    </div>
+                </a>
+                <a class="more">
+                    查看更多该机构课程 
+                    <i class="icon-arr-right"></i>
+                </a>
+            </div> -->
+
+            <div class="course-list" v-show='items.length'>
+                <a class="item"  v-for='item in items' :href='"index.html?id="+item.id'>
+                    <div class="img-con">
+                        <img :src="item.group.logo" @error='getDefaultImg(item)'>
+                        <div class="count" v-if="item.classNum">{{item.classNum}}节课</div>
+                    </div>
+                    <div class="infor">
+                        <div class="name">{{item.name}}</div>
+                        <div class="price">
+                            ￥<strong class="num">{{item.price}}</strong>
+                            <del class="original">￥{{item.orginPrice}}</del>
+                        </div>
+                        <div class="f-fr f-ml10">
+                            {{item.group.regionName}} 
+                            <span v-if='item.group.dist'>{{item.group.dist}}km</span>
+                        </div>
+                        <div class="group">{{item.group.groupName}}</div>
+                    </div>
+                </a>
+                
+            </div>
+            
+        </ui-list>
+        
+        <ui-scroll-top></ui-scroll-top>
+
+        <!--loading 动画-->
+        <ui-loading :is-loading="isLoading"></ui-loading>
+
+    </div>
+</body>
+
+</html>

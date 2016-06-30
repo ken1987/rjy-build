@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap" class="p-activity-list">
+    <ui-header :title='title'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <!-- 筛选 -->
+    <ui-slide-nav :category='category' @change='change'></ui-slide-nav>
+    <!-- 列表 --> 
+    <ui-list 
+        :is-last-page='isLastPage' 
+        :is-loading='isLoading' 
+        :is-empty='isEmpty' 
+        @load-more='load'>
+        <div class="activity-list" v-show='items.length'>
+            <a class="item" v-for='item in items' :href='detailUrl+"?id="+item.id'>
+                <img :src="item.coverImg">
+                <div class="text">
+                    <div class="title">{{item.title}}</div>
+                    <div class="detail">
+                        <span>{{item.subtitle}}</span>
+                    </div>
+                    <div class="address">
+                        {{item.abbreName}}&nbsp;
+                        <span v-show="item.distance">{{item.distance}}km</span>
+                    </div>
+                </div>
+                <i v-show="item.groupId" class="icon-league"></i>
+            </a>
+        </div>
+    </ui-list>
+
+
+
+        <!-- 排序按钮 -->
+        <div class="sort-btn" @click="setSort()"><i class="icon-sort"></i>排序</div>
+        <!-- 排序的选择 -->
+        <div class="w-sort" v-if="showSort" v-el="sortcontent" @click="setSort()">
+            <div class="w-sort__content" >
+                <div class="item" :class="{'z-on' : sort.isClick}" v-for="sort in sortMethod" @click="getSort($index)">
+                      {{sort.name}}
+                      <i class="icon-right" v-if="sort.isClick"></i> 
+                      <span v-if="! (options.lon || sort.isClick)">(不可用)</span>     
+                </div>
+            </div>
+        </div>
+        
+
+    <!-- 排序按钮 -->
+
+    <!-- 排序的选择 -->
+    <!-- <div class="w-sort">
+        <div class="w-sort__content">
+            <div class="item z-on">默认排序<i class="icon-right"></i></div>
+            <div class="item">离我最近</div>
+        </div>
+    </div> -->
+    
+    <!--loading 动画-->
+    <ui-loading :is-loading="isLoading"></ui-loading>
+
+</body>
+</html>

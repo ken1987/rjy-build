@@ -1,0 +1,92 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.m-group-nav {
+    position: fixed;
+    .px2rem(left, 20);
+    .px2rem(bottom, 40);
+    .px2rem(width, 200);
+    text-align: center;
+    .open,
+    .close {
+        display: inline-block;
+        .px2rem(width, 80);
+        .px2rem(height, 80);
+        .px2rem(border-radius, 40);
+    }
+    .open,
+    .close {
+        position: relative;
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #fff;
+            -webkit-transform:translateY(-50%) translateX(-50%); 
+            -ms-transform:translateY(-50%) translateX(-50%); 
+            transform:translateY(-50%) translateX(-50%);
+        }
+        &:before {
+            .px2rem(width, 4);
+            .px2rem(height, 40);
+        }
+        &:after {
+            .px2rem(width, 40);
+            .px2rem(height, 4);
+        }
+    }
+    .open {
+        background-color: rgba(110, 180 , 43, .3);
+    }
+    .close {
+        background-color: rgba(0, 0, 0, 0.3);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .content {
+        position: absolute;
+        left: 0;
+        .px2rem(bottom, 100);
+        border: 1px solid @color-gray4;
+        .px2rem(border-radius, @radius-base);
+        background-color: @color-gray2;
+        a {
+            display: block;
+            .px2rem(width, 160);
+            .px2rem(margin-left, 20);
+            .px2rem(margin-right, 20);
+            .px2rem(padding-top, 20);
+            .px2rem(padding-bottom, 20);
+            text-align: center;
+            color: @color-black;
+            border-bottom: 1px solid @color-gray4;
+            &:last-child {
+                border-bottom: 0;
+            }
+            &.z-active {
+                color: @color-primary;
+            }
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            .px2rem(bottom, -10);
+            left: 50%;
+            .px2rem(width, 20);
+            .px2rem(height, 20);
+            .px2rem(margin-left, -10);
+            background-color: @color-gray2;
+            border-width: 1px;
+            border-style: solid;
+            border-color: transparent @color-gray4 @color-gray4 transparent;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+ 

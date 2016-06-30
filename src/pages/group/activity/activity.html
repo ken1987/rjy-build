@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap">
+    <ui-header :title='title'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <!-- 列表 -->
+    <ui-list :is-last-page='isLastPage' :is-loading='isLoading' :is-empty='isEmpty' @load-more='load'>
+        <div class="activities" v-show='!isEmpty'>
+            <a class="item" v-for='item in items' :href='activityUrl+"?id="+item.id'>
+                <div class="img-con" v-bind:class="{'z-expired':item.isPast == true}">
+                    <img :src="item.coverImg">
+                </div>
+                <div class="text">
+                    <div class="title">{{item.title}}</div>
+                    <div class="date">{{item.activityTime}}</div>
+                    <div class="address">
+                        <i class="icon-address"></i> {{item.abbreName}}
+                        <span v-show="item.distance">{{item.distance}} km</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </ui-list>
+    <ui-scroll-top></ui-scroll-top>
+    <ui-loading :is-loading="isLoading"></ui-loading>
+</body>
+
+</html>

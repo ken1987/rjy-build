@@ -1,0 +1,205 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.pay {
+	.coupon {
+		color: @color-primary;
+		&:after {
+			content: '';
+			display: inline-block;
+			.px2rem(width, 20);
+		    .px2rem(height, 20);
+		    border-right: 1px solid @color-gray5;
+		    border-top: 1px solid @color-gray5;
+		    
+				transform: rotate(45deg);
+				transform-origin: center center;
+		}
+	}
+	.coupon.disabled {
+		color: @color-gray7;
+		&:after {
+			display: none;
+		}
+	}
+	.lucky {
+		.code-input {
+			display: block;
+			width: 100%;
+			// .px2rem(width, 360);
+			.px2rem(padding, 0, 6);
+			.px2rem(margin-right, 30);
+			.px2px(line-height, 56);
+			border: 1px solid lighten(@color-gray5,20%);
+			.px2rem(border-radius, @radius-base);
+            background-color: @color-gray2;
+		}
+        .btn {
+            flex-grow:2;
+        }
+	}
+	.free-tip {
+		.px2rem(margin-bottom, @spacing-vertical-base);
+		.px2px(font-size, @font-size-h2);
+		color: @color-black;
+		text-align: center;   
+	}
+}	
+.m-coupon {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+    .m-coupon__content {
+	    position: absolute;
+	    bottom: 0;
+	    left: 50%;
+	    .px2rem(width, 640);
+	    .px2rem(margin-left, -320);
+	    overflow: auto;
+	}
+    .m-coupon__hd {
+        position: relative;
+        .px2px(padding, 24, 0);
+        color: @color-black;
+        text-align: center;
+        border-bottom: 1px solid @color-gray4;
+        background-color: @color-white;
+        .icon-wrong {
+	        position: absolute;
+	        top: 12px;
+	        right: 10px;
+	    }
+    }    
+    .m-coupon__bd {
+    	max-height: 300px;
+    	overflow-y: auto;
+    	background-color: #efedec;
+    }
+    .m-coupon__item {
+        .px2rem(margin, 20, 10);
+        .px2rem(width, 620);
+        .px2rem(height, 180);
+        background-image: url('c.png');
+        background-size: cover;
+
+        &.z-selected{
+        	opacity: 0.5;
+        }
+        .infor {
+		    display: table-cell;
+		    .px2rem(width, 230);
+		    .px2rem(height, 180);
+		    .px2rem(padding, 10);
+		    vertical-align: middle;
+		    text-align: center;
+		    color: @color-white;
+		    word-break: break-all;
+
+		    .amount {
+		        .px2px(font-size, 48);
+		    }
+		    .limit {
+		        .px2px(font-size, @font-size-h5);
+		    }
+	    }
+	    .detail {
+		    display: table-cell;
+		    .px2rem(width, 390);
+		    .px2rem(height, 180);
+		    .px2rem(padding, 10);
+		    vertical-align: middle;
+		    text-align: center;
+		    word-break: break-all;
+		    text-align: left;
+			
+			.name {
+				.px2rem(margin-bottom, 8);
+				.px2px(font-size, 32);
+		        color: @color-primary;
+			}
+		    .explain {
+		    	.px2rem(margin-bottom, 8);
+		        color: @color-black;
+		    }
+		    .deadline {
+		        .px2px(font-size, @font-size-h5);
+		        color: @color-gray5;
+		    }
+            .highlight{
+                color: @color-primary;
+            }
+	    }
+    }
+    .unuse {
+    	display: block;
+    	width: 100%;
+	    .px2px(padding, 24, 0);
+	    color: @color-black;
+	    text-align: center;
+	    border-top: 1px solid @color-gray4;
+	    background-color: @color-white;
+    }
+}
+.m-draw-result {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    .m-draw-result__content {
+    	position: absolute;
+	    bottom: 0;
+	    left: 50%;
+	    // width: 100%;
+    	top: 50%;
+		.px2rem(margin-top, -362);
+		.px2rem(margin-left, -320);
+		.px2rem(width, 640);
+		.px2rem(height, 725);
+		text-align: center;
+		background: url("1.png");
+		background-size: cover;
+		.text {
+			display: block;
+			.px2rem(margin-top, 325);
+			.px2rem(margin-left, 165);
+			.px2rem(width, 320);
+			.px2rem(height, 220);
+			.px2px(font-size, 34); 
+			color: @color-white;
+			.price {
+				.px2px(font-size, 84);
+			}
+		}
+		.sure {
+			display: inline-block;
+			position: relative;
+			.px2rem(margin-top, 50);
+			color: @color-white;
+			background-color: #0064ca;
+		}
+		.sure:before {
+			content: '确 定';
+			position: absolute;
+			.px2rem(top, -10);
+			.px2rem(left, 0);
+			background-color: #0480ff;
+		}
+		.sure,
+		.sure:before {
+			.px2rem(width, 270);
+			.px2rem(height, 80);
+			.px2rem(line-height, 80);
+			.px2rem(border-radius, 40);
+			.px2px(font-size, 36);
+		}
+    }	
+}

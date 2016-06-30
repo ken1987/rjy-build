@@ -1,0 +1,83 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+.p-course-list {
+	.group-con {
+		background-color: @color-white;
+		.px2rem(padding-left, @spacing-vertical-base);
+		.px2rem(margin-bottom, @spacing-vertical-small);
+		border-bottom: 1px solid @color-gray4;
+	}
+	.more {
+		display: block;
+		.px2rem(padding, 20, 0);
+		.px2px(font-size, 24);
+		color: @color-black;
+		text-align: center;
+		// border-top: 1px solid @color-gray4;
+	}
+	.course-list {
+		.px2rem(padding-left, @spacing-vertical-base);
+		background-color: @color-white;
+	}
+	.item {
+		display: flex;
+		align-items: center;
+		.px2rem(padding, @spacing-vertical-base, @spacing-vertical-base, @spacing-vertical-base, 0 );
+		border-bottom: 1px solid @color-gray4;
+		cursor: pointer;
+		.img-con {
+			position: relative;
+			flex-shrink: 0;
+			img {
+				display: block;
+				.px2rem(width, 130);
+				.px2rem(height, 130); 
+			}
+			.count {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				.px2rem(padding, 6, 10);
+				.px2px(font-size, 20);
+				color: @color-white;
+				background-color: rgba(0, 0, 0, 0.5)
+			}
+		}
+		// 文字部分 
+		.infor {
+			position: relative;
+			flex-grow:1;
+			width: 100%;
+			.px2rem(margin-left, @spacing-vertical-small);
+			.px2px(font-size, @font-size-h5);
+			color: @color-gray5;
+			overflow: hidden;
+			.name {
+				.px2rem(margin-bottom, 8);
+				.px2px(font-size, @font-size-h2);
+				color: @color-black;
+				.text-overflow();
+			}
+			.price {
+				.px2rem(margin-bottom, 8);
+				color: @color-success;
+				strong {
+					.px2px(font-size, 36);
+				}
+				.original {
+					.px2px(font-size, 20);
+					color: @color-gray5;
+				}
+			}
+			.group {
+				.text-overflow();
+			}
+		}
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+	
+}
+	

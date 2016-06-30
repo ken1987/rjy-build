@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body id="wrap" class="p-share">
+    <ui-header :title='info.name'>
+    </ui-header>
+    <div id="card" class="card" :style="{backgroundImage: 'url(' + info.background + ')'}">
+        <div class="flag">
+            <!-- 润教育VIP卡 -->
+        </div>
+        <img class="logo" :src="info.logo" alt="">
+        <div class="infor">
+            <div class="name">{{info.name}}</div>
+            <div class="discount">{{info.discount}}</div>
+            <div class="time">有效期至:{{info.endTime}}</div>
+        </div>
+    </div>
+    <div class="g-con">
+        <div class="vip">
+            <i class="icon-crown"></i>
+            <div>
+                润教育用户尊享VIP服务！
+            </div>
+            <i class="icon-triangle_d"></i>
+        </div>
+    </div>
+        
+    <div class="g-con-b">
+        <button class="btn btn_big btn_block" @click="clickload()">打开润教育APP</button>
+    </div>
+</body>
+
+</html>

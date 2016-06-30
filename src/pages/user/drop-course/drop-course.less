@@ -1,0 +1,42 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+
+body {
+	background-color: @color-white;
+}
+.reason-list {
+	
+	.px2rem(padding-left, @spacing-vertical-base);
+
+	.item {
+	    .px2rem(padding, @spacing-vertical-small, 0);
+	    border-bottom: 1px solid @color-gray4; 
+		cursor: pointer;
+	}
+	.u-input-radio {
+	    display: inline-block;
+	    vertical-align: middle;
+		&:before {
+			display: inline-block;
+			color: @color-white;
+			width: 18px;
+			height: 18px;
+			font-size: 12px;
+			line-height: 18px;
+			text-align: center;
+			border: 1px solid @color-gray5;
+			border-radius: 16px;
+		}
+
+	    input {
+		    position: absolute;
+		    visibility: hidden;
+	    }
+	}
+	.u-input-radio.z-checked {
+		&:before {
+			border-color: @color-success;
+			background-color: @color-success;
+		}
+	}
+}

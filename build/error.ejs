@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Error - <%=status%></title>
+  </head>
+  <body>
+    <div id="error">
+      <h1>Error - <%=status%></h1>
+      <p>Looks like something broke!</p>
+      <p>env: <%-env%></p>
+      <% if(env === 'development'){ %>
+      <pre>
+        <code>
+          <%-stack%>
+        </code>
+      </pre>
+      <% } %>
+    </div>
+  </body>
+</html>

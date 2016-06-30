@@ -1,0 +1,49 @@
+@import "/components/ui/variable";
+@import "/components/ui/mixin";
+.p-reservation {
+    .video-con {
+        position: relative;
+        .px2rem(height, 164);
+        overflow: hidden; 
+    }
+    .video-list {
+        position: absolute;
+        left: 0;
+        top: 0;
+        min-width: 10rem;
+       .px2rem(padding, @spacing-vertical-base);
+        white-space: nowrap;
+
+        .item {
+            position: relative;
+            display: inline-block;
+            .px2rem(width, 186);
+            .px2rem(height, 104);
+            .px2rem(margin-right, 10);
+            vertical-align: top;
+            &:after {
+                content: '';
+                position: absolute;
+                .px2rem(top, 23);
+                .px2rem(left, 64);
+                .px2rem(width, 58);
+                .px2rem(height, 58);
+                background: url(images/v.png?__inline);
+                background-size: cover;
+            }
+            img{
+                .px2rem(width, 186);
+                .px2rem(height, 104);    
+            }
+        }
+    }
+    .solution {
+        .item {
+            .text-overflow();
+        }
+        .money {
+            .px2rem(margin-left, @spacing-vertical-small);
+            flex-shrink: 0;
+        }
+    }
+}

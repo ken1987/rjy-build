@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="import" href="/components/head/head.tpl?__inline">
+</head>
+
+<body>
+    <div id="wrap">
+
+        <ui-header :title='title' >
+            <ui-header-back slot='left'></ui-header-back>
+        </ui-header>
+
+        <ui-list :is-last-page='isLastPage' :is-loading='isLoading' :is-empty='isEmpty' @load-more='onLoadMore'>
+            <div class="teachers" v-show='!isEmpty'>
+                <a class="item" v-for='item in items' :href='"teacher.html?id="+item.id'>
+                    <img :src="item.profileImg">
+                    <div class="text">
+                        <div class="name">{{item.name}}</div>
+                        <div class="subject">
+                            <span v-for='n in item.subjects'>{{n.name}}</span>
+                        </div>
+                        <div class="teaching-age">{{item.teacherAge}}年教龄</div>
+                    </div>
+                    <i class="icon-arr-right"></i>
+                </a>
+            </div>
+        </ui-list>
+        
+        <ui-scroll-top></ui-scroll-top>
+    </div>
+</body>
+
+</html>

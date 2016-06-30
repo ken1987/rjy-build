@@ -1,0 +1,45 @@
+
+    <!-- 头部 -->
+    <ui-header title='奖励查询'>
+        <ui-header-back slot='left'></ui-header-back>
+    </ui-header>
+    <!-- 基本信息 -->
+    <div class="p-reward">
+
+        <div class="infor">
+            <div class="group-name">{{detail.groupName}}</div>
+            <div class="detail">
+                <div class="w50"><span class="f-c-weak">姓名：</span>{{detail.name}}</div>
+                <div class="w50"><span class="f-c-weak">手机号：</span>{{detail.mobile}}</div>
+                <div class="w50"><span class="f-c-weak">推荐码：</span>{{detail.refCode}}</div>
+                <div class="w50"><span class="f-c-weak">累计推荐数：</span>{{detail.referralNum}}</div>
+                <div><span class="f-c-weak">累计奖励金额：</span><span class="f-c-primary">{{detail.rewardPrice}}元</span></div>
+                <div v-if="detail.bankNo">
+                    <span class="f-c-weak">{{detail.bankName}}：</span>{{detail.bankNo}}
+                </div>
+            </div>
+        </div>
+
+        <div class="reward-list">
+            <div class="item">
+                <div class="time">{{curweek.beginTime}}至{{curweek.endTime}}</div>
+                <div><span class="f-c-weak">推荐数：</span>{{curweek.referralNum}}次</div>
+                <div>本周尚未结束</div>
+            </div>
+
+            <div class="item" v-for="history in historys">
+                <div class="time">{{history.beginTime}}至{{history.endTime}}</div>
+                <div><span class="f-c-weak">推荐数：</span>{{history.rewardNum}}次</div>
+                <div><span class="f-c-weak">奖金：</span>{{history.rewardPrice}}元<span class="tip"> 
+                (
+                <template v-if="history.perItemPrice">单单奖:{{history.perItemPrice}}元</template>  
+                <template v-if="history.weekPrice">周周奖:{{history.weekPrice}}元</template>
+                <template v-if="history.newcomerPrice">新人奖:{{history.newcomerPrice}}元</template>
+                )</span></div>
+            </div>
+
+
+        </div>
+    
+    </div>
+
