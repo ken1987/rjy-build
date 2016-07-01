@@ -1,9 +1,6 @@
-var path = require('path');
-var fs = require('co-fs');
 var router = require('koa-router')();
-var vueRender = require('../vueRender');
 
-var homePage = require('../api/group-home');
+var homePage = require('../../../dist/views/group/index/build');
 
 var aboutPage = function* () {
     yield [];
@@ -27,15 +24,7 @@ var coursesPage = function* () {
 
 // 机构详情路由
 router
-    .get('/', function* (next) {
-        this.redirect('/groups'); // 重定向到机构列表路由
-    })
-    .get('/:groupId', function* (next) {
-        this.body = yield vueRender({
-            template: yield fs.readFile(path.resolve('build/views/group-home.tpl')),
-            data: yield homePage(this.params.groupId)
-        });
-    })
+    .get('/:groupId', homePage)
     .get('/:groupId/about', function* (next) {
         this.body = yield aboutPage;
     })

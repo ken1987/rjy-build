@@ -1,8 +1,7 @@
 /**
  * 图标
- * @require '../_.js'
  */
-window.RUI.icons = {
+module.exports = {
     props: ['name'],
     template: __inline('icons.tpl')
 };

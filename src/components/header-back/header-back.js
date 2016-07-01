@@ -3,19 +3,19 @@
  * @require '../_.js'
  * @require '../icons/icons.js'
  */
-window.RUI.headerBack = {
+module.exports = {
     template: __inline('header-back.tpl'),
     props: ['type'],
     components: {
-        'ui-icon': window.RUI.icons
+        'ui-icon': require('../icons/icons')
     },
     computed: {
-        name: function() {
-            return 'back' + (this.type || "");
+        name: function () {
+            return 'back' + (this.type || '');
         }
     },
     methods: {
-        back: function() {
+        back: function () {
             window.history.back();
         }
     }

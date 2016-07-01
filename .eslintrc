@@ -11,7 +11,9 @@
         "node": true
     },
     "globals": {
-        "fis": true
+        "fis": true,
+        "__uri": true,
+        "__inline": true
     },
     // 规则
     "rules": {

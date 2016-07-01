@@ -1,14 +1,8 @@
 /**
  * 全局
-    @require "/components/ui/normalize.less"
-    @require "/components/ui/base.less"
-    @require "/components/ui/helper.less"
-    @require "/components/ui/login.less"
-    @require "/components/panel/panel.less"
-    @require "/components/button/button.less"
-    @require "/components/icons/icons.less"
-    @require "/components/layout/layout.less"
-    @require "/components/form/form.less"
+    @require "../ui/normalize.less"
+    @require "../ui/base.less"
+    @require "../ui/helper.less"
  */
 
 @import "../ui/variable";
@@ -16,55 +10,8 @@
 [v-if],
 [v-show] {
     visibility: hidden;
-} 
-
-// 条纹背景
-.m-streak {
-	min-height: 6px;
-	background: url('color_line.png') repeat-x;
 }
 
-// 注册
-.register-con {
-	text-align: center;
-	.px2rem(margin, 120, @spacing-vertical-base);
-	.px2rem(padding-bottom, 80);
-	// 橙色
-	.icon-go {
-	    color: @color-success;
-	}
-} 
-
-// 通用con布局
-.g-con {
-	.px2rem(margin, @spacing-vertical-base);
-}
-// 页面底部
-.g-con-b {
-	.px2rem(margin, @spacing-vertical-base, @spacing-vertical-base, 0, @spacing-vertical-base);
-	.px2rem(padding-bottom, @spacing-vertical-base);
-}
-
-
-// 固定在底部的按钮
-.m-b-con {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    .content {
-    	.px2rem(width, 640);
-	    min-width: 320px;
-	    margin: 0 auto;
-		.px2rem(padding, @spacing-vertical-small, @spacing-vertical-base);
-		text-align: center;
-		border-top: 1px solid @color-gray4;
-		background-color: rgba(255, 255, 255, 0.8);
-    }
-	
-}
-.m-b-div {
-	box-sizing: content-box;
-	.px2rem(padding, @spacing-vertical-small);
-	.px2px(height, 84);
+html{
+    font-size:64px;
 }

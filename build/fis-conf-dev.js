@@ -45,14 +45,5 @@ fis
     .match('**', {
         isMod: true,
         useSameNameRequire: true, // 开启同名依赖
-        release: '/static/$&',
         domain: '${domain}'
-    })
-    // pages目录下的页面，产出到根目录
-    .match(/^\/pages\/(.*\.html)$/, {
-        release: '/$1'
-    })
-    // pages目录下与上级目录同名的页面，产出到上一级目录
-    .match(/^\/pages\/(.*)([^\/]+)\/\2\.html$/, {
-        release: '/$1$2.html'
     });
