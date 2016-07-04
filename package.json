@@ -6,8 +6,8 @@
     "scripts": {
         "server-dev": "node build/server-dev.js",
         "server": "node build/server.js",
-        "build-dev": "fis3 release -r src -f build/fis-conf-dev.js --verbose -d dist -w",
-        "build": "fis3 release-r src -f build/fis-conf-prod.js --verbose -d dist"
+        "build-dev": "fis3 release -r src -f build/fis-conf-dev.js --verbose -cd dist -w",
+        "build": "fis3 release-r src -f build/fis-conf-prod.js --verbose -cd dist"
     },
     "repository": {
         "type": "git",

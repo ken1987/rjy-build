@@ -24,7 +24,11 @@ var coursesPage = function* () {
 
 // 机构详情路由
 router
-    .get('/:groupId', homePage)
+    .get('/:groupId/(.*)', function* () {
+        yield [];
+        this.body = 123;
+    })
+    .get('/:groupId/home', homePage)
     .get('/:groupId/about', function* (next) {
         this.body = yield aboutPage;
     })
