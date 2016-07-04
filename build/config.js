@@ -6,7 +6,7 @@ var serverListenPorts = {
 
 // 代理服务
 var proxy = {
-    host: 'http://www.rjy.rd',
+    host: 'http://www.runjiaoyu.com.cn',
     match: /^\/api\//
 };
 

@@ -2,7 +2,7 @@ var router = require('koa-router')();
 
 var serverGroups = function* () {
     yield [];
-    return '机构列表第' + (this.params.page || 1) + '页';
+    return '机构列表第' + (this.params.groupPage || 1) + '页';
 };
 
 router

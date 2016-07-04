@@ -5,7 +5,7 @@ module.exports = function (options) {
 
     // 添加前缀
     options.url = options.url || '';
-    options.url = 'http://www.rjy.rd/api' + options.url;
+    options.url = 'http://www.runjiaoyu.com.cn' + options.url;
 
     // 替换版本号,只替换一次
     options.url.replace(/\/v[0-9]+\//, '/' + version + '/');

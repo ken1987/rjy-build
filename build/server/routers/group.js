@@ -1,4 +1,6 @@
-var router = require('koa-router')();
+var router = require('koa-router')({
+    prefix: '/:groupId'
+});
 
 var homePage = require('../../../dist/views/group/index/build');
 
@@ -24,27 +26,32 @@ var coursesPage = function* () {
 
 // 机构详情路由
 router
-    .get('/:groupId/(.*)', function* () {
-        yield [];
-        this.body = 123;
-    })
-    .get('/:groupId/home', homePage)
-    .get('/:groupId/about', function* (next) {
+    .get('/', function* (next) {
+        console.log(this.url);
+        // 判断是否是斜杠结尾，不是重定向到斜杠结尾
+        if (/\/$/.test(this.url)) {
+            yield next;
+        } else {
+            this.redirect(this.url + '/');
+            this.status = 301; // 永久重定向
+        }
+    }, homePage)
+    .get('/about', function* (next) {
         this.body = yield aboutPage;
     })
-    .get('/:groupId/comment', function* (next) {
+    .get('/comment', function* (next) {
         this.body = yield commentPage;
     })
-    .get('/:groupId/activitys', function* (next) {
+    .get('/activitys', function* (next) {
         this.body = yield activitysPage;
     })
-    .get('/:groupId/activitys/:activitysPage', function* (next) {
+    .get('/activitys/:activitysPage', function* (next) {
         this.body = yield activitysPage;
     })
-    .get('/:groupId/courses', function* (next) {
+    .get('/courses', function* (next) {
         this.body = yield coursesPage;
     })
-    .get('/:groupId/courses/:coursesPage', function* (next) {
+    .get('/courses/:coursesPage', function* (next) {
         this.body = yield coursesPage;
     });
 

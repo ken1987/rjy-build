@@ -10,7 +10,7 @@ var componentsHeaderBack = require('../../../components/header-back/header-back'
  */
 var format = function (data) {
     // 地图链接
-    data.mapUrl = '/pages/map/map.html' +
+    data.mapUrl = '/map.html' +
         '?lon=' + (data.lon || '') +
         '&lat=' + (data.lat || '') +
         '&address=' + (data.address || data.addressDetail || '') +
@@ -31,8 +31,7 @@ module.exports = function* (next) {
 
         data = format(data);
     } catch (e) {
-        this.status = 400;
-        this.body = e;
+        this.status = 404;
         return;
     }
 
