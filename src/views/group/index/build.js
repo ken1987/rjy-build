@@ -23,7 +23,7 @@ module.exports = function* (next) {
     // 获取数据
     try {
         var data = yield request({
-            url: '/student/v3/group/home',
+            url: '/api/student/v3/group/home',
             qs: {
                 'groupId': this.params.groupId
             }
@@ -78,9 +78,9 @@ module.exports = function* (next) {
     this.body = yield vueRender({
         template: templateHTML,
         data: {
-            title: 'test',
-            keywords: '123,123,ddfd',
-            description: '123123213',
+            title: data.groupName,
+            keywords: data.tag,
+            description: data.introduction,
             body: body
         }
     });

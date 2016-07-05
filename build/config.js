@@ -1,6 +1,6 @@
 // 服务监听端口
-var serverListenPorts = {
-    static: '4000', // 静态资源
+var ports = {
+    static: '9527', // 静态资源
     page: '3000' // 页面
 };
 
@@ -10,16 +10,23 @@ var proxy = {
     match: /^\/api\//
 };
 
-// fis
-var fis = {
-    domain: {
-        dev: '//127.0.0.1:' + serverListenPorts.static,
-        prod: '' // '//dn-runedu-h5.qbox.me'
-    }
+// 七牛
+var qiniu = {
+    accessKey: 'KxlAO_L8DzANng3VufFsh62RkQYLRkqGe-TGYiR1',
+    secretKey: 'VVgEmoIAnZwQAuEXRdih1p_-4e5MVPS3HIZiEacF',
+    bucket: 'test',
+    domain: 'http://7xru0b.com1.z0.glb.clouddn.com'
 };
 
+// var qiniu = {
+//     accessKey: 'KxlAO_L8DzANng3VufFsh62RkQYLRkqGe-TGYiR1',
+//     secretKey: 'VVgEmoIAnZwQAuEXRdih1p_-4e5MVPS3HIZiEacF',
+//     bucket: 'runedu-h5',
+//     domain: '//dn-runedu-h5.qbox.me'
+// };
+
 module.exports = {
-    serverListenPorts: serverListenPorts,
+    ports: ports,
     proxy: proxy,
-    fis: fis
+    qiniu: qiniu
 };

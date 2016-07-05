@@ -48,11 +48,11 @@
             <img :src="item.imgUrl">
         </a>
         <div class="course-list f-clearfix">
-            <a class="item" v-for='item in recCourses' :href='courseUrl+"?id="+item.id'>
+            <a class="item" v-for='item in recCourses' :href='"/course/index.html?id="+item.id'>
                 <img :src="item.coverImg">
                 <div class="title">{{item.title}}</div>
             </a>
-            <a class="item" v-for='item in recActivities' :href='activityUrl+"?id="+item.id'>
+            <a class="item" v-for='item in recActivities' :href='"activity/details.html?id="+item.id'>
                 <img :src="item.coverImg">
                 <div class="title">{{item.title}}</div>
             </a>

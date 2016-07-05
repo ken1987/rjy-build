@@ -10,7 +10,7 @@ var proxy = require('koa-proxy');
 
 var router = require('./server/router');
 var config = require('./config');
-var serverListenPorts = config.serverListenPorts;
+var ports = config.ports;
 var proxyConfig = config.proxy;
 
 // ---------------------------------------------------------------------------- HTML服务
@@ -42,13 +42,19 @@ appForHtml.use(proxy(proxyConfig));
 appForHtml.use(router);
 
 // 开启监听
-appForHtml.listen(serverListenPorts.page, function () {
-    console.log('pages server listen: ' + serverListenPorts.page);
+appForHtml.listen(ports.page, function () {
+    console.log('pages server listen: ' + ports.page);
 });
 
 // ---------------------------------------------------------------------------- 静态资源服务
 // 日志
 appForStatic.use(logger());
+
+// 资源跨域
+appForStatic.use(function* (next) {
+    yield next;
+    this.set('Access-Control-Allow-Origin', '*');
+});
 
 // 静态文件服务
 appForStatic.use(serve(path.resolve('dist'), {
@@ -56,6 +62,6 @@ appForStatic.use(serve(path.resolve('dist'), {
 }));
 
 // 开启监听
-appForStatic.listen(serverListenPorts.static, function () {
-    console.log('static file server listen: ' + serverListenPorts.static);
+appForStatic.listen(ports.static, function () {
+    console.log('static file server listen: ' + ports.static);
 });

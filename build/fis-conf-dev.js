@@ -1,31 +1,26 @@
 /**
  * 开发相关配置
  */
+var port = require('./config').ports.static;
 
-var config = require('./config').fis;
+// 参考：https://github.com/postcss/autoprefixer
+var autoprefixer = require('autoprefixer');
+autoprefixer({
+    browsers: ['not ie <= 8', '> 5% in CN', 'last 3 versions']
+});
 
 // 排除指定目录和文件
 fis.set('project.ignore', [
     '**/___*.png' // 过滤三下划线开头的预览图片
 ]);
 
-// 发布环境静态资源
-fis.set('domain', config.domain.dev);
+// 发布静态资源
+fis.set('domain', 'http://127.0.0.1:' + port);
 
 // 参考：https://github.com/ken1987/fis-postprocessor-rjy-postcss
 fis.config.set('settings.postprocessor.rjy-postcss', {
     addPlugins: function () {
-        var plugins = [];
-
-        // 参考：https://github.com/postcss/autoprefixer
-        var pl = require('autoprefixer');
-        pl({
-            browsers: ['not ie <= 8', '> 5% in CN', 'last 3 versions']
-        });
-
-        plugins.push(pl);
-
-        return plugins;
+        return [autoprefixer];
     }
 });
 
